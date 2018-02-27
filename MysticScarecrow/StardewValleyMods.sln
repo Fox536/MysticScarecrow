@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MysticScarecrow", "MysticScarecrow\MysticScarecrow.csproj", "{537AA6E7-53F9-42F9-AA11-7F2551A2BE30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndoorBeehive", "IndoorBeehive\IndoorBeehive.csproj", "{362F9651-8944-4AD3-BF81-6A941ED9333A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{537AA6E7-53F9-42F9-AA11-7F2551A2BE30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{537AA6E7-53F9-42F9-AA11-7F2551A2BE30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{537AA6E7-53F9-42F9-AA11-7F2551A2BE30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{362F9651-8944-4AD3-BF81-6A941ED9333A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{362F9651-8944-4AD3-BF81-6A941ED9333A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{362F9651-8944-4AD3-BF81-6A941ED9333A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{362F9651-8944-4AD3-BF81-6A941ED9333A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

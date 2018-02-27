@@ -1,0 +1,10 @@
+﻿{
+   "Name": "Indoor Beehive",
+   "Author": "Fox536",
+   "Version": "1.0.0",
+   "Description": "Allows Beehives to function indoors.",
+   "UniqueID": "Fox536.IndoorBeehive",
+   "EntryDll": "IndoorBeehive.dll",
+   "MinimumApiVersion": "2.0",
+   "UpdateKeys": []
+}
