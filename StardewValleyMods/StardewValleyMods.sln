@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MysticScarecrow", "MysticSc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndoorBeehive", "IndoorBeehive\IndoorBeehive.csproj", "{362F9651-8944-4AD3-BF81-6A941ED9333A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdjustFarmWarps", "AdjustFarmWarps\AdjustFarmWarps.csproj", "{3C0501CE-AAEF-438E-9921-5729D41C77B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceGen", "ResourceGen\ResourceGen.csproj", "{8BFE8997-BBDF-4B23-AFCB-CFFFA35EC192}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{362F9651-8944-4AD3-BF81-6A941ED9333A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{362F9651-8944-4AD3-BF81-6A941ED9333A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{362F9651-8944-4AD3-BF81-6A941ED9333A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C0501CE-AAEF-438E-9921-5729D41C77B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C0501CE-AAEF-438E-9921-5729D41C77B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C0501CE-AAEF-438E-9921-5729D41C77B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C0501CE-AAEF-438E-9921-5729D41C77B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BFE8997-BBDF-4B23-AFCB-CFFFA35EC192}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BFE8997-BBDF-4B23-AFCB-CFFFA35EC192}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BFE8997-BBDF-4B23-AFCB-CFFFA35EC192}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BFE8997-BBDF-4B23-AFCB-CFFFA35EC192}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,7 +7,7 @@ using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.TerrainFeatures;
 
-namespace YourProjectName
+namespace Fox536.MysticScarecrow
 {
 	/// <summary>The mod entry point.</summary>
 	public class ModEntry : Mod

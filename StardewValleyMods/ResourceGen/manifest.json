@@ -1,0 +1,10 @@
+﻿{
+   "Name": "ResourceGen",
+   "Author": "Fox536",
+   "Version": "1.0.0",
+   "Description": "Produces resources on the farm.",
+   "UniqueID": "Fox536.ResourceGen",
+   "EntryDll": "ResourceGen.dll",
+   "MinimumApiVersion": "2.0",
+   "UpdateKeys": []
+}

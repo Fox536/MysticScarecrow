@@ -1,0 +1,10 @@
+﻿{
+   "Name": "AdjustFarmWarps",
+   "Author": "Fox536",
+   "Version": "1.0.0",
+   "Description": "A small change that adjusts the Warps to the Farm, for altered Farm Maps.",
+   "UniqueID": "Fox536.AdjustFarmWarps",
+   "EntryDll": "AdjustFarmWarps.dll",
+   "MinimumApiVersion": "2.0",
+   "UpdateKeys": []
+}
