@@ -1,0 +1,10 @@
+﻿{
+   "Name": "Mystic Scarecrow",
+   "Author": "Fox536",
+   "Version": "1.0.0",
+   "Description": "Creates a Scarecrow that also waters the plants around it.",
+   "UniqueID": "Fox536.MysticScarecrow",
+   "EntryDll": "MysticScarecrow.dll",
+   "MinimumApiVersion": "2.0",
+   "UpdateKeys": []
+}
