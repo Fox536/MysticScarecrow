@@ -1,12 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.0
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MysticScarecrow", "MysticScarecrow\MysticScarecrow.csproj", "{537AA6E7-53F9-42F9-AA11-7F2551A2BE30}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndoorBeehive", "IndoorBeehive\IndoorBeehive.csproj", "{362F9651-8944-4AD3-BF81-6A941ED9333A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdjustFarmWarps", "AdjustFarmWarps\AdjustFarmWarps.csproj", "{3C0501CE-AAEF-438E-9921-5729D41C77B8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceGen", "ResourceGen\ResourceGen.csproj", "{8BFE8997-BBDF-4B23-AFCB-CFFFA35EC192}"
@@ -19,14 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{537AA6E7-53F9-42F9-AA11-7F2551A2BE30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{537AA6E7-53F9-42F9-AA11-7F2551A2BE30}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{537AA6E7-53F9-42F9-AA11-7F2551A2BE30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{537AA6E7-53F9-42F9-AA11-7F2551A2BE30}.Release|Any CPU.Build.0 = Release|Any CPU
-		{362F9651-8944-4AD3-BF81-6A941ED9333A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{362F9651-8944-4AD3-BF81-6A941ED9333A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{362F9651-8944-4AD3-BF81-6A941ED9333A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{362F9651-8944-4AD3-BF81-6A941ED9333A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3C0501CE-AAEF-438E-9921-5729D41C77B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3C0501CE-AAEF-438E-9921-5729D41C77B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C0501CE-AAEF-438E-9921-5729D41C77B8}.Release|Any CPU.ActiveCfg = Release|Any CPU

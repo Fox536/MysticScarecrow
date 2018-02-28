@@ -50,23 +50,6 @@ namespace Fox536.Machines
 			foreach (StardewValley.Buildings.Building bLocation in Game1.getFarm().buildings)
 			{
 				ItterateMachines(bLocation.indoors, false, timePassed);
-				continue;
-
-				GameLocation location = bLocation.indoors;
-				foreach (KeyValuePair<Vector2, StardewValley.Object> item in location.objects)
-				{
-					StardewValley.Object machine = item.Value;
-					if (machine.name == "Bee House")
-					{
-						// Allow beehive to function in Greenhouse
-						if (bLocation.buildingType == "Shed")
-							machine.minutesUntilReady = Math.Max(machine.minutesUntilReady - timePassed, 0);
-					}
-					else if (machine.name == "Temporal Device")
-					{
-						//TemporalIncreaser(location, machine, timePassed);
-					}
-				}
 			}
 		}
 		private void TimeEvents_AfterDayStarted(object sender, EventArgs e)
