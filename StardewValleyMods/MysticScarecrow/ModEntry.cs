@@ -12,7 +12,9 @@ namespace Fox536.MysticScarecrow
 	/// <summary>The mod entry point.</summary>
 	public class ModEntry : Mod
 	{
-		private string ScarecrowName = "Mystic Scarecrow";
+		
+		internal Config.ModConfig config;
+		
 		/*********
         ** Public methods
         *********/
@@ -22,29 +24,29 @@ namespace Fox536.MysticScarecrow
 		{
 			TimeEvents.AfterDayStarted += TimeEvents_AfterDayStarted;
 
+			config = helper.ReadConfig<Config.ModConfig>();
 		}
 
 		private void TimeEvents_AfterDayStarted(object sender, EventArgs e)
 		{
-			int size = 8;
 			foreach (GameLocation location in Game1.locations)
 			{
 				foreach (KeyValuePair<Vector2, StardewValley.Object> item in location.objects)
 				{
-
-					if (item.Value.name.Contains(ScarecrowName))
+					Config.SprinklerScarecrow sprinkler = config.SprinklerScarecrowConfig.Find(x => x.Name == item.Value.name);
+					if (sprinkler != null)
 					{
-						WaterScareCrowArea(location, item.Key);
+						WaterScareCrowArea(location, item.Key, sprinkler);
 					}
 				}
 			}
 		}
 
-		private void WaterScareCrowArea(GameLocation location, Vector2 centerPoint)
+		private void WaterScareCrowArea(GameLocation location, Vector2 centerPoint, Config.SprinklerScarecrow sprinkler)
 		{
 			Vector2 currentPoint = new Vector2(centerPoint.X, centerPoint.Y);
 
-			int width = 13;
+			int width = sprinkler.Width;
 			int halfWidth = ((width - 1) / 2);
 
 			// Main Section
