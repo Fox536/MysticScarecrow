@@ -4,7 +4,7 @@
    "Version": "1.0.0",
    "Description": "Adds several new machines and machine changes.",
    "UniqueID": "Fox536.Machines",
-   "EntryDll": "MysticScarecrow.dll",
+   "EntryDll": "FoxMachines.dll",
    "MinimumApiVersion": "2.0",
    "UpdateKeys": []
 }
