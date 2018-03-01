@@ -1,0 +1,21 @@
+﻿{
+   "name": "Mystic Scarecrow",
+   "author": "Fox536",
+   "version": "1.0.0",
+   "machines":
+   [
+	   {
+		   "id": 0,
+		   "name": "Mystic Scarecrow",
+		   "legacy": "Fox536.json",
+		   "description": "A Mystic Scarecrow that also waters any surrounding plants.",
+		   "category": "Scarecrow",
+		   "texture": "Scarecrow.png",
+		   "tileindex": 0,
+		   "shop": "Robin",
+		   "price": "50000",
+		   "crafting": "768 200 74 25",
+		   "frames": 6
+	   },
+	]
+}

@@ -1,0 +1,47 @@
+﻿{
+   "name": "Temporal Crystal",
+   "author": "Fox536",
+   "version": "1.0.0",
+   "machines":
+   [
+		{
+		   "id": 0,
+		   "name": "Small Temporal Crystal",
+		   "legacy": "Fox536.json",
+		   "description": "A weird crystal that slightly speeds up time within 5 tiles.",
+		   "category": "Crafting",
+		   "texture": "TemporalCrystal.png",
+		   "tileindex": 0,
+		   "shop": "Robin",
+		   "price": "40000",
+		   "crafting": "768 50 74 5",
+		   "frames": 8
+	   },
+	   {
+		   "id": 1,
+		   "name": "Temporal Crystal",
+		   "legacy": "Fox536.json",
+		   "description": "A weird crystal that speeds up time within 5 tiles.",
+		   "category": "Crafting",
+		   "texture": "TemporalCrystalGreen.png",
+		   "tileindex": 0,
+		   "shop": "Robin",
+		   "price": "80000",
+		   "crafting": "768 100 74 10",
+		   "frames": 8
+	   },
+	   {
+		   "id": 2,
+		   "name": "Large Temporal Crystal",
+		   "legacy": "Fox536.json",
+		   "description": "A weird crystal that greatly speeds up time within 5 tiles.",
+		   "category": "Crafting",
+		   "texture": "TemporalCrystalRed.png",
+		   "tileindex": 0,
+		   "shop": "Robin",
+		   "price": "120000",
+		   "crafting": "768 200 74 25",
+		   "frames": 8
+	   },
+	]
+}
