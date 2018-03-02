@@ -1,0 +1,84 @@
+﻿
+Images/Machines
+	[ ] Syrup Collector
+	[ ] Barn Collector
+	[ ] Coop Collector
+	[ ] Battery Charger
+	[X] Mystic Totem
+	[ ] Mystic Scarecrow
+	[ ] Mystic Collector
+
+Images/Items
+	[ ] Dead Battery 
+	[x] Nature's Gift
+	[x] Earth's Bounty
+	[ ] 
+
+
+
+
+ * Syrup Collector
+	- Collects all Syrup from tapped trees either:
+		- from all tapped trees on the map, or
+		- in a decently big range (say 8x8 or so)
+	- Puts the Syrup in a chest connected to the Collector
+	- Battery Idea: Use batteries and return dead batteries
+
+
+ * Barn / Coop Collectors
+
+ * Battery Charger
+	- Takes dead batteries and recharges 1 a day
+
+ * Mystic Totem
+	- Donate 50 Crops as a starter
+		- For Starfruit:
+			=> Gives 1 pack of Ancient Seeds
+	
+	- Donating 10 Prismatic Shards
+			=> Gives 1 Rare Seed each week
+
+	- Donate:
+		50x Copper Ore
+		50x Iron Ore
+		50x Gold Ore
+		50x Iridium Ore
+		 2x	Diamonds
+			=> Gives 1 Earth's Bounty, after a week
+
+	- Donate:
+		20x	Large Milk
+		20x Starfruit
+		20x Cherry
+			=> Gives 1 Nature's Gift after a week, Needed for many Custom Machines (Growing Tree, Growing Weed)
+
+
+ * Mystic Scarecrow
+	Description:	Waters the entire area of the Scarecrow's effect.
+	Recipe:
+		 50x	Diamonds
+		  1x	Iridium Sprinkler
+		  1x	Scarecrow
+		100x	Slime
+		  1x	Nature's Bounty
+
+
+ * Mystic Collector
+	Collects products from most Mystic Machines into a nearby chest.
+	Recipe:
+		 1x		Nature's Bounty
+		50x		Iron Bars
+		10x		Gold Bars
+		50x		Stone
+
+
+
+ * Growing Tree, Growing Rock, Growing Quartz, Growing Weeds
+	Time:	 4h
+
+ * Large Growing Tree, Large Growing Rock
+	Time:	20h
+
+ * Mystic *Ore* Summoner
+	Time:	20h
+	Creates

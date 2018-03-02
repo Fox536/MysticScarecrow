@@ -57,6 +57,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MachineSetup\Machine Ideas.txt" />
+    <Content Include="MachineSetup\EarthsBounty.png" />
+    <Content Include="MachineSetup\MysticTotem.png" />
+    <Content Include="MachineSetup\NaturesGift.png" />
     <Content Include="Mods\CustomFarmingRedux\Machines\Fox536.MysticScarecrow\Scarecrow.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
