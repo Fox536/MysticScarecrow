@@ -400,7 +400,7 @@ namespace Fox536.Machines
 			WaterArea(location, area);
 		}
 
-		private void ItterateMachines(GameLocation location, bool isBuildableLocation, int timePassed)
+		private void ItterateMachines(GameLocation location, bool isBuildableLocation, int timePassed, StardewValley.Object baseMachine = null)
 		{
 			if (location == null || location.objects == null)
 				return;
@@ -409,6 +409,22 @@ namespace Fox536.Machines
 				StardewValley.Object machine = item.Value;
 				if (item.Value == null)
 					continue;
+
+				if (baseMachine != null)
+				{
+					if (baseMachine.name == "Mystic Collector")
+					{
+						if (machine.name == "Large Growing Tree")
+						{
+							if (machine.readyForHarvest)
+								if (machine.heldObject != null)
+									CollectMachines(location, machine, baseMachine);
+							//print("Machine holds: " + machine.heldObject.name);
+						}
+					}
+
+					return;
+				}
 
 
 				// Make Beehive work indoors
@@ -426,14 +442,10 @@ namespace Fox536.Machines
 					continue;
 				}
 
-				/*
-				if (machine.name == "Large Growing Tree")
-				{
-					if (machine.readyForHarvest)
-						if (machine.heldObject != null)
-							print("Machine holds: " + machine.heldObject.name);
-				}
-				*/
+				// Mystic Collector
+				if (machine.name == "Mystic Collector")
+					ItterateMachines(location, false, timePassed, machine);
+				
 			}
 		}
 
@@ -468,6 +480,42 @@ namespace Fox536.Machines
 					}
 				}
 			}
+		}
+		private StardewValley.Objects.Chest CollectMachines(GameLocation location, StardewValley.Object machine, StardewValley.Object collector)
+		{
+			List<Vector2> tiles = getSurroundingTiles(collector.TileLocation);
+			foreach (var tile in tiles)
+			{
+				if (location.objects.ContainsKey(tile))
+					if (location.objects[tile] is StardewValley.Objects.Chest chest)
+						CollectMachines(location, machine, chest);
+			}
+			return null;
+		}
+		private StardewValley.Objects.Chest CollectMachines(GameLocation location, StardewValley.Object machine, StardewValley.Objects.Chest collectorChest)
+		{
+			if (machine.readyForHarvest && machine.heldObject != null)
+				if (machine.heldObject is StardewValley.Item item)
+					collectorChest.addItem(item);
+			
+			return collectorChest;
+		}
+
+		private List<Vector2> getSurroundingTiles(Vector2 centerPoint)
+		{
+			List<Vector2> surroundingTiles = new List<Vector2>();
+			Vector2 tempPoint = new Vector2();
+			for (int x; x < 3; x++)
+			{
+				for (int y; y < 3; y++)
+				{
+					tempPoint.X = centerPoint.X - 1 + x;
+					tempPoint.Y = centerPoint.Y - 1 + y;
+					surroundingTiles.Add(tempPoint);
+				}
+			}
+
+			return surroundingTiles;
 		}
 		#endregion
 		//-------------------------/

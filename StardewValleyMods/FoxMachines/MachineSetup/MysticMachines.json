@@ -1,0 +1,96 @@
+﻿{
+   "name": "MysticMachines",
+   "author": "Fox536",
+   "version": "1.0.0",
+   "machines":
+   [
+	   {
+		   "id": 0,
+		   "name": "Mystic Totem",
+		   "legacy": "Fox536.MysticMachines.json",
+		   "description": "A Mystical Totem that will bestow great wealth for various offerings.",
+		   "category": "Crafting",
+		   "crafting" : "336 10 338 50 390 25 74 1",
+		   "texture": "MoreMachines.png",
+		   "tileindex": 0,
+		    "production":
+			[
+				{
+					"index": 499,
+					"time": 60,
+					"materials":
+					[
+						{
+							"index": 268,
+							"stack": 50
+						}
+					]
+				},
+				{
+					"index": 347,
+					"time": 60,
+					"materials":
+					[
+						{
+							"index": 24,
+							"stack": 50
+						}
+					]
+				},
+				{
+					"item": "Cosmic Idol",
+					"time": 60,
+					"materials":
+					[
+						{
+							"index": 74,
+							"stack": 25
+						},
+						{
+							"index": 417,
+							"stack": 1
+						},
+					]
+				},
+			]
+	   },
+	   
+	   
+	   
+	   {
+		   "id": 1,
+		   "name": "Cosmic Idol",
+		   "legacy": "Platonymous.More.AlienIdol.json",
+		   "description": "Produces Rare Seeds out of cosmic energy",
+		   "category": "Crafting",
+		   "texture": "MoreMachines.png",
+		   "tileindex": 0,
+		   "pulsate":false,
+		   "frames": 4,
+		   "production":
+			[
+				{
+					"index": 347,
+					"time": 1200
+				}
+			]
+	   },
+	   {
+		   "id": 2,
+		   "name": "Prismantium",
+		   "legacy": "Fox536.MysticMachines.json",
+		   "description": "Grows more Prismatic Shards, every week.",
+		   "category": "Crafting",
+		   "texture": "filename.png",
+		   "tileindex": 0,
+		   "production":
+			[
+				{
+					"index": 74,
+					"time": 10000
+				}
+			]
+	   },
+	   
+   ]
+}

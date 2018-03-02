@@ -47,6 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="MachineSetup\MysticMachines.json" />
     <None Include="manifest.json" />
     <None Include="Mods\CustomFarmingRedux\Machines\Fox536.MysticScarecrow\MysticScarecrow.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -57,6 +58,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MachineSetup\Growing Weeds.png" />
     <Content Include="MachineSetup\Machine Ideas.txt" />
     <Content Include="MachineSetup\EarthsBounty.png" />
     <Content Include="MachineSetup\MysticTotem.png" />
