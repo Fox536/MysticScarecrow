@@ -1,0 +1,130 @@
+﻿
+Images/Machines
+	[ ] Syrup Collector
+	[ ] Barn Collector
+	[ ] Coop Collector
+	[ ] Battery Charger
+	[X] Mystic Totem
+	[X] Mystic Scarecrow
+	[ ] Mystic Collector
+
+	[X] Growing Shrub
+	[X] Growing Rock
+	[ ] Growing Weed
+	[X] Growing Tree
+	[X] Growing Stone
+	[X] Growing Quartz
+	[X] Copper Extractor
+	[X] Iron Extractor
+	[X] Gold Extractor
+	[X] Iridium Extractor
+	[X] Prismantium
+
+Images/Items
+	[ ] Dead Battery 
+	[x] Nature's Gift
+	[x] Earth's Bounty
+	[ ] 
+
+
+
+
+ * Syrup Collector
+	- Collects all Syrup from tapped trees either:
+		- from all tapped trees on the map, or
+		- in a decently big range (say 8x8 or so)
+	- Puts the Syrup in a chest connected to the Collector
+	- Battery Idea: Use batteries and return dead batteries
+
+
+ * Barn / Coop Collectors
+
+ * Battery Charger
+	- Takes dead batteries and recharges 1 a day
+
+ * Mystic Totem
+	Description: A Mystical Totem that will bestow great wealth for various offerings
+	Recipe:
+		10x		Gold Bar
+		50x		Wood
+		25x		Stone
+		 1x		Prismatic Shard
+
+	- Donate 50 Crops
+		- For Starfruit:
+			=> Gives 1 pack of Ancient Seeds
+	
+		- For any others
+			=> Gives 1 Nature's Gift after a week, Needed for many Custom Machines (Growing Tree, Growing Weed)
+
+	- Donating 1 Sweetberry & 25 Prismatic Shards
+			=> Gives 1 Alien Idol after a week
+
+	- Donating 1 Ancient Fruit & 25 Prismatic Shards
+			=> Gives 1 Prismantium after 2 weeks
+
+	- Donate:
+		50x		Copper Ore
+		50x		Iron Ore
+		50x		Gold Ore
+		50x		Iridium Ore
+		 2x		Diamonds
+			=> Gives 1 Earth's Bounty, after a week
+
+			
+
+ * Mystic Scarecrow
+	Description:	Protects from crows and waters everything around in.
+	Recipe:
+		 50x	Diamonds
+		  1x	Iridium Sprinkler
+		  1x	Scarecrow
+		100x	Slime
+		  1x	Nature's Bounty
+
+
+ * Mystic Collector
+	Description: Collects products from most Mystic Machines into a nearby chest.
+	Recipe:
+		 1x		Nature's Bounty
+		50x		Iron Bars
+		10x		Gold Bars
+		50x		Stone
+
+
+ * Growing Tree, Growing Rock, Growing Weeds
+	Time:	 4h
+	Recipe:
+		200x	Material
+		  1x	Nature's Gift
+
+ * Growing Quartz
+	Recipe:
+		50x		Quartz
+		 1x		Nature's Gift
+
+ * Large Growing Tree, Large Growing Rock
+	Time:	20h
+
+ * Mystic *Ore* Extractor
+	Time:	20h
+	Recipe: 
+		200x	*Ore*
+		  1x	Earth's Bounty
+	Description: Creates *Ore* from the ether.
+
+ * Prismantium
+	Description: Grows more Prismatic Shards, every week
+	Recipe: None, see Mystic Totem
+	Time 10000
+
+ * Mystic Forge
+	Description: Randomly produces diffent metals from the ether.
+	Recipe: 
+		50x		Copper Bar
+		50x		Iron Bar
+		50x		Gold Bar
+		50x		Iridium Bar
+		 5x		Earth's Bounty
+	Time: 20h
+
