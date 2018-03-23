@@ -1,0 +1,21 @@
+{
+  "Name": "White Tea",
+  "Description": "A lite brew of young tea leaves; has a fresh flavor.",
+  "Category": "Cooking",
+  "Edibility": 10,
+  "EdibleIsDrink": true,
+  "EdibleBuffs": null,
+  "Price": 75,
+  "IsColored": false,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Tea Leaf",
+        "Count": 1,
+      }
+    ],
+   "IsDefault": true,
+
+  }
+}

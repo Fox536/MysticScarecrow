@@ -1,0 +1,33 @@
+{
+  "Name": "Cucumber Sandwich",
+  "Description": "A plain, refreshing tea sandwich.",
+  "Category": "Cooking",
+  "Edibility": 22,
+  "EdibleIsDrink": false,
+  "EdibleBuffs": null,
+  "Price": 65,
+  "IsColored": false,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": 216,
+        "Count": 1,
+      },
+      {
+        "Object": "Cucumber",
+        "Count": 1,
+      },
+      {
+        "Object": 306,
+        "Count": 1,
+      }
+    ],
+    "CanPurchase": true,
+    "PurchaseFrom": "Gus",
+    "PurchasePrice": 450,
+    "PurchaseRequirements": [
+      "f Evelyn 1250",
+    ]
+  }
+}

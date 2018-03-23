@@ -1,0 +1,9 @@
+{
+  "Name": "Dragon Fruit",
+  "Description": "Also called a pitaya, this is the fruit of a large cactus.",
+  "Category": "Fruit",
+  "Edibility": 15,
+  "Price": 125,
+  "IsColored": false,
+  "Recipe": null,
+}

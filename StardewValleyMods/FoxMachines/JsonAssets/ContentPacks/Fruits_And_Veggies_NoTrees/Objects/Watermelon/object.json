@@ -1,0 +1,9 @@
+{
+  "Name": "Watermelon",
+  "Description": "Juicy and sweet, it is a delicious summer treat. Often brought on beach trips!",
+  "Category": "Fruit",
+  "Edibility": 45,
+  "Price": 320,
+  "IsColored": false,
+  "Recipe": null,
+}

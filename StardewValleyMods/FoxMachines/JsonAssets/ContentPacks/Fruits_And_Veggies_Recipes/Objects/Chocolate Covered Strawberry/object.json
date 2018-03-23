@@ -1,0 +1,27 @@
+{
+  "Name": "Chocolate Covered Strawberry",
+  "Description": "One step away from bliss!",
+  "Category": "Cooking",
+  "Edibility": 15,
+  "EdibleIsDrink": false,
+  "EdibleBuffs": null,
+  "Price": 150,
+  "IsColored": false,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Chocolate",
+        "Count": 1,
+      },
+      {
+        "Object": 400,
+        "Count": 1,
+      }
+    ],
+    "CanPurchase": true,
+    "PurchaseFrom": "Gus",
+    "PurchasePrice": 550,
+    "PurchaseRequirements": null,
+  }
+}

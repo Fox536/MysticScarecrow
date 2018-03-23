@@ -1,0 +1,31 @@
+{
+  "Name": "Cucumber Roll",
+  "Description": "It’s like a vegetarian maki roll.",
+  "Category": "Cooking",
+  "Edibility": 15,
+  "EdibleIsDrink": false,
+  "EdibleBuffs": null,
+  "Price": 200,
+  "IsColored": false,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": 423,
+        "Count": 1,
+      },
+      {
+        "Object": 152,
+        "Count": 1,
+      },
+      {
+        "Object": "Cucumber",
+        "Count": 1,
+      }
+    ],
+    "CanPurchase": true,
+    "PurchaseFrom": "Gus",
+    "PurchasePrice": 1000,
+    "PurchaseRequirements": null,
+  }
+}

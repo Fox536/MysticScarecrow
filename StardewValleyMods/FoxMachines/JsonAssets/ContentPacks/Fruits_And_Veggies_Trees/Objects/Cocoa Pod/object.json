@@ -1,0 +1,9 @@
+{
+  "Name": "Cocoa Pod",
+  "Description": "The pod obtained from a cocoa tree. Mmm! Who's ready to make some chocolate?",
+  "Category": "Vegetable",
+  "Edibility": -300,
+  "Price": 125,
+  "IsColored": false,
+  "Recipe": null,
+}

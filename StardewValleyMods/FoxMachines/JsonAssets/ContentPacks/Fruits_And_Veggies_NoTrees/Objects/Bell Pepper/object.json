@@ -1,0 +1,9 @@
+{
+  "Name": "Bell Pepper",
+  "Description": "The tamest pepper on the scale. A delicious addition to many meals!",
+  "Category": "Vegetable",
+  "Edibility": 8,
+  "Price": 70,
+  "IsColored": false,
+  "Recipe": null,
+}

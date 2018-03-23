@@ -1,0 +1,9 @@
+{
+  "Name": "Eucalyptus Leaves",
+  "Description": "Leathery blue-green leaves are studded with glands containing a fragrant, volatile oil. Luckily not an exploding oil!",
+  "Category": "Vegetable",
+  "Edibility": -300,
+  "Price": 135,
+  "IsColored": false,
+  "Recipe": null,
+}

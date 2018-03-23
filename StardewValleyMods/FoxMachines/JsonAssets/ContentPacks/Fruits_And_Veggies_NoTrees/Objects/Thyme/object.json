@@ -1,0 +1,9 @@
+{
+  "Name": "Thyme",
+  "Description": "An aromatic herb in the mint family, with small rounded leaves and pink flowers.",
+  "Category": "Vegetable",
+  "Edibility": 5,
+  "Price": 55,
+  "IsColored": false,
+  "Recipe": null,
+}

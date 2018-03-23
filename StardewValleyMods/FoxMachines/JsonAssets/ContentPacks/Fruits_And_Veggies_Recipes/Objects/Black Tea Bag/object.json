@@ -1,0 +1,37 @@
+{
+  "Name": "Black Tea Bag",
+  "Description": "Locally grown and ready to serve tea.",
+  "Category": "Cooking",
+  "Edibility": -300,
+  "EdibleIsDrink": false,
+  "EdibleBuffs": null,
+  "Price": 3500,
+  "IsColored": false,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Black Tea",
+        "Count": 1,
+      },
+      {
+        "Object": "Sweet Tea",
+        "Count": 1,
+      },
+      {
+        "Object": "Fancy Sweet Tea",
+        "Count": 1,
+      },
+      {
+        "Object": 771,
+        "Count": 2,
+      },
+{
+        "Object": 388,
+        "Count": 1,
+      }
+    ],
+     "IsDefault": true,
+    
+  }
+}

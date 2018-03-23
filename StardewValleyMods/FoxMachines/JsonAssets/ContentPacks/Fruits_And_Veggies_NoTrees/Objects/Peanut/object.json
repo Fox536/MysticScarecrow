@@ -1,0 +1,9 @@
+{
+  "Name": "Peanut",
+  "Description": "A slightly salty nut that can be churned into peanut butter.",
+  "Category": "Vegetable",
+  "Edibility": 8,
+  "Price": 75,
+  "IsColored": false,
+  "Recipe": null,
+}

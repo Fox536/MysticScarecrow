@@ -1,0 +1,25 @@
+{
+  "Name": "Black Tea",
+  "Description": "Brewed to perfection. The flavors of this tea are more pronounced without sugar!",
+  "Category": "Cooking",
+  "Edibility": 20,
+  "EdibleIsDrink": true,
+  "EdibleBuffs": null,
+  "Price": 125,
+  "IsColored": false,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Tea Leaf",
+        "Count": 4,
+       }
+    ],
+    "CanPurchase": true,
+    "PurchaseFrom": "Gus",
+    "PurchasePrice": 650,
+    "PurchaseRequirements": [
+      "r 0.25",
+    ]
+  }
+}

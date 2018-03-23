@@ -1,0 +1,9 @@
+{
+  "Name": "Onion",
+  "Description": "Be careful when cutting it!",
+  "Category": "Vegetable",
+  "Edibility": 8,
+  "Price": 115,
+  "IsColored": false,
+  "Recipe": null,
+}

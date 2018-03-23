@@ -1,0 +1,9 @@
+{
+  "Name": "Lemon",
+  "Description": "A tangy citrus fruit that is used to make lemonade.",
+  "Category": "Fruit",
+  "Edibility": 15,
+  "Price": 50,
+  "IsColored": false,
+  "Recipe": null,
+}

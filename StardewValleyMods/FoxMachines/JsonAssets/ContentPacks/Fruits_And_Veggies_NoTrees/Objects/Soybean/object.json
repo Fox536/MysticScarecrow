@@ -1,0 +1,9 @@
+{
+  "Name": "Soybean",
+  "Description": "Nutty in flavor. Its oil can be used in a plethora of products.",
+  "Category": "Vegetable",
+  "Edibility": 8,
+  "Price": 80,
+  "IsColored": false,
+  "Recipe": null,
+}

@@ -1,0 +1,9 @@
+{
+  "Name": "Lettuce",
+  "Description": "Watery. It is the basis for salads worldwide.",
+  "Category": "Vegetable",
+  "Edibility": 30,
+  "Price": 65,
+  "IsColored": false,
+  "Recipe": null,
+}

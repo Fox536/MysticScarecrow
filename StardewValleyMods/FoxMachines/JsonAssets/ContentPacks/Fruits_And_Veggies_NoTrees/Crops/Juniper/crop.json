@@ -1,0 +1,23 @@
+{
+    "Name": "Juniper",
+    "Product": "Juniper",
+    "SeedName": "Juniper Berry Seeds",
+    "SeedDescription": "Plant these in winter. Takes 13 days to mature, and keeps producing after the first harvest.",
+    "Type": "Fruit",
+
+    "Seasons": ["winter"],
+    "Phases": [ 1, 2, 3, 4, 3, 3 ],
+    "RegrowthPhase": 5,
+    "HarvestWithScythe": false,
+    "TrellisCrop": false,
+    "Colors": null,
+    "Bonus": {
+        "MinimumPerHarvest": 2,
+        "MaximumPerHarvest": 6,
+        "MaxIncreasePerFarmLevel": 5,
+        "ExtraChance": 0.2,
+    },
+
+    "SeedPurchasePrice": 80,
+
+}

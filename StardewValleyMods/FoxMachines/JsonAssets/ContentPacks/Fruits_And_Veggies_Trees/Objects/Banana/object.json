@@ -1,0 +1,9 @@
+{
+  "Name": "Banana",
+  "Description": "Something of an oddity, all bananas are closely related clones. If a disease strikes, entire crops suffer.",
+  "Category": "Fruit",
+  "Edibility": 30,
+  "Price": 170,
+  "IsColored": false,
+  "Recipe": null,
+}

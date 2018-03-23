@@ -1,0 +1,27 @@
+{
+  "Name": "Brown Sugar",
+  "Description": "It's plain sugar mixed with molasses.",
+  "Category": "Cooking",
+  "Edibility": 20,
+  "EdibleIsDrink": false,
+  "EdibleBuffs": null,
+  "Price": 75,
+  "IsColored": false,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": 724,
+        "Count": 2,
+      },
+      {
+        "Object": 245,
+        "Count": 8,
+      }
+    ],
+    "CanPurchase": true,
+    "PurchaseFrom": "Gus",
+    "PurchasePrice": 350,
+    "PurchaseRequirements": null,
+  }
+}
