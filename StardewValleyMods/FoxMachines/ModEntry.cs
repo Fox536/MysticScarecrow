@@ -17,6 +17,9 @@ namespace Fox536.Machines
 
 		const string BeeHiveName = "Bee House";
 
+		// Used for caching the Machine Grouping so it doesn't have to re find all the machines every game hour.
+		Dictionary<GameLocation, Dictionary<StardewValley.Object, List<StardewValley.Object>>> MachineGroups = new Dictionary<GameLocation, Dictionary<StardewValley.Object, List<StardewValley.Object>>>();
+		
 		//-------------------------
 		// Public Methods
 		//-------------------------
@@ -28,8 +31,38 @@ namespace Fox536.Machines
 
 			TimeEvents.AfterDayStarted  += TimeEvents_AfterDayStarted;
 			TimeEvents.TimeOfDayChanged += TimeEvents_TimeOfDayChanged;
+			LocationEvents.LocationObjectsChanged += LocationEvents_LocationObjectsChanged;
+
+			GameEvents.OneSecondTick += GameEvents_OneSecondTick;
+			
 		}
-		
+
+
+		List<GameLocation> updateNeeded = new List<GameLocation>();
+
+		int updateTick = 0;
+		private void GameEvents_OneSecondTick(object sender, EventArgs e)
+		{
+			if (updateTick > config.UpdateTime)
+			{
+				ItterateMachines(Game1.currentLocation, 0);
+				updateTick = 0;
+			}
+			else
+			{
+				updateTick++;
+			}
+		}
+
+		private void LocationEvents_LocationObjectsChanged(object sender, EventArgsLocationObjectsChanged e)
+		{
+			if (MachineGroups.ContainsKey(Game1.currentLocation))
+			{
+				if (!updateNeeded.Contains(Game1.currentLocation))
+					updateNeeded.Add(Game1.currentLocation);
+			}
+		}
+
 		//-------------------------/
 		#region - Events
 		//-------------------------/
@@ -41,16 +74,19 @@ namespace Fox536.Machines
 			else
 				timePassed = e.NewInt - e.PriorInt;
 
+			// Check for Overnight Changes
+			if (timePassed < 0) { timePassed *= -1; }
+
 			try
 			{
 				foreach (GameLocation location in Game1.locations)
 				{
-					ItterateMachines(location, false, timePassed);
+					ItterateMachines(location, timePassed);
 				}
 
 				foreach (StardewValley.Buildings.Building bLocation in Game1.getFarm().buildings)
 				{
-					ItterateMachines(bLocation.indoors, false, timePassed);
+					ItterateMachines(bLocation.indoors, timePassed);
 				}
 			} catch (Exception ex)
 			{
@@ -288,7 +324,7 @@ namespace Fox536.Machines
 			WaterArea(location, area);
 		}
 
-		private void ItterateMachines(GameLocation location, bool isBuildableLocation, int timePassed, StardewValley.Object baseMachine = null)
+		private void ItterateMachines(GameLocation location, int timePassed)
 		{
 			if (location == null || location.objects == null)
 				return;
@@ -299,60 +335,366 @@ namespace Fox536.Machines
 				if (item.Value == null)
 					continue;
 
-				if (baseMachine != null)
+
+				//-------------------------------------
+				// Bee Hive
+				//  - Make it work indoors
+				//-------------------------------------
+				if (item.Value.name == BeeHiveName)
 				{
-					if (baseMachine.name == "Mystic Collector")
-					{
-						if (machine.name == "Large Growing Tree")
-						{
-							if (machine.readyForHarvest)
-								if (machine.heldObject != null)
-									CollectMachines(location, machine, baseMachine);
-							//print("Machine holds: " + machine.heldObject.name);
-						}
-					}
-
-					return;
+					UpdateBeehive(location, machine, timePassed);
+					continue;
 				}
+				//-------------------------------------
+				// Bee Hive
+				//-------------------------------------
 
-
-				// Make Beehive work indoors
-				//if (item.Value.name == BeeHiveName)
-				//{
-					//UpdateBeehive(location, machine, timePassed);
-					//continue;
-				//}
-				
+				//-------------------------------------
 				// Machine Speed Boost
+				//-------------------------------------
 				c.SpeedIncreaser speedIncreaser = config.SpeedIncreaserConfig.Find(x => x.Name == machine.name);
 				if (speedIncreaser != null)
 				{
 					TemporalIncreaser(location, speedIncreaser, machine, timePassed);
 					continue;
 				}
+				else if (machine is StardewValley.Objects.Cask cask)
+				{
+					StardewValley.Object temporalMachine = TemporalIncreaserInRange(location, cask);
+					if (temporalMachine != null)
+					{
+						speedIncreaser = config.SpeedIncreaserConfig.Find(obj => obj.Name == temporalMachine.name);
+						if (speedIncreaser != null)
+						{
+							cask.agingRate = 1 + (speedIncreaser.SpeedBuff / 100);
+						}
+					}
+					else
+					{
+						cask.agingRate = 1;
+					}
+				}
+				//-------------------------------------
+				// Machine Speed Boost
+				//-------------------------------------
 
+
+				//-------------------------------------
 				// Mystic Collector
-				if (machine.name == "Mystic Collector")
-					ItterateMachines(location, false, timePassed, machine);
-				
+				//-------------------------------------
+				if (config.CollectorMachines.Contains(machine.Name))
+				{
+					MysticCollectorUpdate(location, machine);
+				}
+				//-------------------------------------
+				// Mystic Collector
+				//-------------------------------------
+
+				//-------------------------------------
+				// Sap Collector
+				//-------------------------------------
+				if (config.SapCollectorMachines.Contains(machine.Name))
+				{
+					SapCollectorUpdate(location, machine);
+				}
+				//-------------------------------------
+				// Sap Collector
+				//-------------------------------------
+
 			}
 		}
+		
 
+		// For Collectors
+		private StardewValley.Objects.Chest GetConnectedChest(GameLocation location, StardewValley.Object machine)
+		{
+			List<Vector2> surroundingPoints = GetSurroundingTiles(machine.tileLocation);
+			foreach (var point in surroundingPoints)
+			{
+				if (location.Objects.ContainsKey(point))
+				{
+					if (location.Objects[point] is StardewValley.Objects.Chest chest)
+						return chest;
+				}
+			}
+			return null;
+		}
+		
+		// For Mystic Collector
+		private void MysticCollectorUpdate(GameLocation location, StardewValley.Object machine)
+		{
+			print("found collector in: " + location.name);
+
+			List<StardewValley.Object> connectedMachines = null;
+
+			// Get Connected Chest
+			StardewValley.Objects.Chest chest = GetConnectedChest(location, machine);
+			if (chest != null)
+			{
+				//print("found chest");
+
+				
+				Dictionary<StardewValley.Object, List<StardewValley.Object>> groups;
+
+
+				// Get Machine Group
+				if (updateNeeded.Contains(location)) // if update is needed
+				{
+					// do a new search
+					connectedMachines = GetConnectedMachinesGroup(location, machine);
+					print("New Search found " + connectedMachines.Count + " machines connected");
+				}
+				else if (MachineGroups.ContainsKey(location)) // otherwise
+				{
+					// use existing group, if possible
+					groups = MachineGroups[location];
+					if (groups.ContainsKey(machine))
+					{
+						connectedMachines = groups[machine];
+						print("Already found " + connectedMachines.Count + " machines connected");
+					}
+				}
+
+				// if no group exists create one
+				if (connectedMachines == null)
+				{
+					connectedMachines = GetConnectedMachinesGroup(location, machine);
+					print("New Search found " + connectedMachines.Count + " machines connected");
+				}
+
+				// Add location and group to the cache
+				if (MachineGroups.ContainsKey(location))
+				{
+					if (MachineGroups[location].ContainsKey(machine))
+					{
+						MachineGroups[location][machine] = connectedMachines;
+					}
+					else
+					{
+						MachineGroups[location].Add(machine, connectedMachines);
+					}
+				}
+				else
+				{
+					Dictionary<StardewValley.Object, List<StardewValley.Object>> machineGroup = new Dictionary<StardewValley.Object, List<StardewValley.Object>>();
+					machineGroup.Add(machine, connectedMachines);
+					MachineGroups.Add(location, machineGroup);
+				}
+				
+
+
+				// loop through all connected machines
+				foreach (var currentMachine in connectedMachines)
+				{
+					//print("found machine: " + currentMachine.name);
+					// Check if any of the connected machines are ready to be collected
+					if (currentMachine.readyForHarvest && currentMachine.heldObject != null)
+					{
+						//print("machine ready with: " + currentMachine.heldObject.name);
+
+						// check if chest holds the item already
+						if (chest.items.Contains(currentMachine.heldObject))
+						{
+							StardewValley.Item itemObj = chest.items.Find(x => x == currentMachine.heldObject);
+
+							if (itemObj.maximumStackSize() - itemObj.Stack > currentMachine.heldObject.stack)
+							{
+								//print("adding to chest stack");
+								chest.addToStack(currentMachine.heldObject.stack);
+								currentMachine.readyForHarvest = false;
+								currentMachine.minutesUntilReady = -1;
+							}
+							else
+							{
+								if (chest.items.Count < 35)
+								{
+									//print("adding to chest");
+									chest.addItem(currentMachine.heldObject);
+									currentMachine.readyForHarvest = false;
+									currentMachine.minutesUntilReady = -1;
+								}
+							}
+						}
+						else
+						{
+							if (chest.items.Count < 35)
+							{
+								//print("adding to chest");
+								chest.addItem(currentMachine.heldObject);
+								currentMachine.readyForHarvest = false;
+								currentMachine.minutesUntilReady = -1;
+							}
+						}
+
+					}
+				}
+			}
+		}
+		private List<StardewValley.Object> GetConnectedMachinesGroup(GameLocation location, StardewValley.Object machine)
+		{
+			List<StardewValley.Object> connectedMachines = new List<StardewValley.Object>();
+			List<StardewValley.Object> machinesToCheck = new List<StardewValley.Object>() { machine };
+			
+			// loop while machines.count > 0
+			while (machinesToCheck.Count > 0)
+			{
+				// Get Current Machine
+				StardewValley.Object currentMachine = machinesToCheck[0];
+				
+				// Get Adjacent Tiles
+				List<Vector2> adjacentTiles = GetSurroundingTiles(currentMachine.tileLocation);
+				
+				// Check Adjacent Tiles for Machines
+				foreach (var point in adjacentTiles)
+				{
+					if (location.objects.ContainsKey(point) && !connectedMachines.Contains(location.objects[point]))
+					{
+						if (config.CollectedMachines.Contains(location.objects[point].name))
+						{
+							// Add Machine Found to Return List
+							connectedMachines.Add(location.objects[point]);
+							
+							// Add Machine Found, to Check on Later Cycle
+							machinesToCheck.Add(location.objects[point]);
+						}
+					}
+				}
+
+				// Remove Current Machine
+				machinesToCheck.Remove(currentMachine);
+			}
+			
+			return connectedMachines;
+		}
+		private List<Vector2> GetSurroundingTiles(Vector2 point)
+		{
+			List<Vector2> surroundingPoints = new List<Vector2>();
+
+			Vector2 currentPoint = point;
+
+			for (int x = 0; x < 3; x++)
+			{
+				for (int y = 0; y < 3; y++)
+				{
+					currentPoint.X = point.X - 1 + x;
+					currentPoint.Y = point.Y - 1 + y;
+					if (currentPoint == point)
+						continue;
+					surroundingPoints.Add(currentPoint);
+				}
+			}
+
+			return surroundingPoints;
+		}
+
+		// For Sap Collector
+		private void SapCollectorUpdate(GameLocation location, StardewValley.Object machine)
+		{
+			List<StardewValley.Object> connectedMachines = GetAllMachinesInLocationNamed(location, "Tapper"); //GetConnectedMachines(location, machine);
+			print("Found " + connectedMachines.Count + " Tappers.");
+			
+			// Get Connected Chest
+			StardewValley.Objects.Chest chest = GetConnectedChest(location, machine);
+			if (chest != null)
+			{
+				// loop through all connected machines
+				foreach (var currentMachine in connectedMachines)
+				{
+					// Check if any of the connected machines are ready to be collected
+					if (currentMachine.readyForHarvest && currentMachine.heldObject != null)
+					{
+						// check if chest holds the item already
+						if (chest.items.Contains(currentMachine.heldObject))
+						{
+							StardewValley.Item itemObj = chest.items.Find(x => x == currentMachine.heldObject);
+
+							if (itemObj.maximumStackSize() - itemObj.Stack > currentMachine.heldObject.stack)
+							{
+								chest.addToStack(currentMachine.heldObject.stack);
+								currentMachine.readyForHarvest = false;
+								currentMachine.heldObject = null;
+							}
+							else
+							{
+								if (chest.items.Count < 35)
+								{
+									chest.addItem(currentMachine.heldObject);
+									currentMachine.readyForHarvest = false;
+									currentMachine.heldObject = null;
+								}
+							}
+						}
+						else
+						{
+							if (chest.items.Count < 35)
+							{
+								chest.addItem(currentMachine.heldObject);
+								currentMachine.readyForHarvest = false;
+								currentMachine.heldObject = null;
+							}
+						}
+
+					}
+				}
+			}
+		}
+		private List<StardewValley.Object> GetAllMachinesInLocationNamed(GameLocation location, string machineName)
+		{
+			List<StardewValley.Object> machines = new List<StardewValley.Object>();
+			foreach (var item in location.objects)
+			{
+				if (item.Value.name == machineName)
+				{
+					machines.Add(item.Value);
+				}
+			}
+
+			return machines;
+		}
+
+		// Not used anymore
+		private List<StardewValley.Object> GetAllMysticMachinesInLocation(GameLocation location)
+		{
+			List<StardewValley.Object> machines = new List<StardewValley.Object>();
+			foreach (var item in location.objects)
+			{
+				if (config.CollectedMachines.Contains(item.Value.name))
+				{
+					machines.Add(item.Value);
+				}
+			}
+
+			return machines;
+		}
+		
+		// Beehive
 		private void UpdateBeehive(GameLocation location, StardewValley.Object machine, int timePassed)
 		{
+			machine.setIndoors = true;
+			machine.setOutdoors = true;
 			// Allow beehive to function in Greenhouse
 			if (location.Name == "Greenhouse" || location.Name.Contains("Shed"))
 				machine.minutesUntilReady.Value = Math.Max(machine.minutesUntilReady - timePassed, 0);
+
+				if (machine.minutesUntilReady <= 0)
+				{
+					Crop c = Utility.findCloseFlower(machine.tileLocation);
+					machine.honeyType = (StardewValley.Object.HoneyType)c.indexOfHarvest;
+					machine.readyForHarvest = true;
+				}
+			}
 		}
+
+		// Temporal Increaser
 		private void TemporalIncreaser(GameLocation location, c.SpeedIncreaser speedIncreaser, StardewValley.Object machine, int timePassed)
 		{
 			StardewValley.Object affectedMachine;
-
+			
 			Vector2 centerPoint = machine.TileLocation;
 			int width = speedIncreaser.Width;
 			int halfSize = width / 2;
 			float modifier = (speedIncreaser.SpeedBuff / 100);
-
+			
 			Vector2 currentPoint = centerPoint;
 
 			for (int x = 0; x < width; x++)
@@ -365,46 +707,59 @@ namespace Fox536.Machines
 					if (location.objects.ContainsKey(currentPoint))
 					{
 						affectedMachine = location.objects[currentPoint];
-						affectedMachine.minutesUntilReady.Value = Math.Max(affectedMachine.minutesUntilReady - (int)Math.Floor(timePassed * modifier), 0);
+						if (affectedMachine is StardewValley.Objects.Cask cask)
+						{
+							cask.agingRate = 1 + modifier;
+						}
+						else
+						{ 
+							if (!affectedMachine.readyForHarvest)
+							{
+								affectedMachine.minutesUntilReady = Math.Max(affectedMachine.minutesUntilReady - (int)Math.Floor(timePassed * modifier), 0);
+
+							}
+						}
 					}
 				}
 			}
 		}
-		private StardewValley.Objects.Chest CollectMachines(GameLocation location, StardewValley.Object machine, StardewValley.Object collector)
-		{
-			List<Vector2> tiles = getSurroundingTiles(collector.TileLocation);
-			foreach (var tile in tiles)
-			{
-				if (location.objects.ContainsKey(tile))
-					if (location.objects[tile] is StardewValley.Objects.Chest chest)
-						CollectMachines(location, machine, chest);
-			}
-			return null;
-		}
-		private StardewValley.Objects.Chest CollectMachines(GameLocation location, StardewValley.Object machine, StardewValley.Objects.Chest collectorChest)
-		{
-			if (machine.readyForHarvest && machine.heldObject != null)
-				if (machine.heldObject.Value is Item item)
-					collectorChest.addItem(item);
-			
-			return collectorChest;
-		}
 
-		private List<Vector2> getSurroundingTiles(Vector2 centerPoint)
+
+		private StardewValley.Object TemporalIncreaserInRange(GameLocation location, StardewValley.Object machine)
 		{
-			List<Vector2> surroundingTiles = new List<Vector2>();
-			Vector2 tempPoint = new Vector2();
-			for (int x = 0; x < 3; x++)
+			int width = 11;
+			int halfSize = width / 2;
+			//float modifier = (speedIncreaser.SpeedBuff / 100);
+
+			Vector2 centerPoint = machine.tileLocation;
+			Vector2 currentPoint = machine.tileLocation;
+
+			int currentWidth = 0;
+
+			for (int x = 0; x < width; x++)
 			{
-				for (int y = 0; y < 3; y++)
+				currentWidth = x;
+				for (int y = 0; y < width; y++)
 				{
-					tempPoint.X = centerPoint.X - 1 + x;
-					tempPoint.Y = centerPoint.Y - 1 + y;
-					surroundingTiles.Add(tempPoint);
+					currentWidth = x + y;
+
+					currentPoint.X = centerPoint.X - halfSize + x;
+					currentPoint.Y = centerPoint.Y - halfSize + y;
+
+					if (location.objects.ContainsKey(currentPoint))
+					{
+						StardewValley.Object newMachine = location.objects[currentPoint];
+						c.SpeedIncreaser speedIncreaser = config.SpeedIncreaserConfig.Find(obj => obj.Name == newMachine.name);
+						if (currentWidth <= speedIncreaser.Width)
+						{
+							return newMachine;
+						}
+					}
 				}
 			}
 
-			return surroundingTiles;
+
+			return null;
 		}
 		#endregion
 		//-------------------------/

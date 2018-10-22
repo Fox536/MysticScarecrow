@@ -1,0 +1,9 @@
+{
+  "Name": "Ylang Ylang",
+  "Description": "A highly appreciated flower in perfumery and aromatherapy.",
+  "Category": "Flower",
+  "Edibility": 18,
+  "Price": 75,
+  "IsColored": false,
+  "Recipe": null,
+}

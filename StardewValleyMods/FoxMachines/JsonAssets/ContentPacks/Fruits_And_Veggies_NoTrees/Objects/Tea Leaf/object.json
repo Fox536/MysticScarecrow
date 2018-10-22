@@ -1,0 +1,9 @@
+{
+  "Name": "Tea Leaf",
+  "Description": "Sweet smelling leaves cut from a tea bush. It can be steeped in water to make various flavors of tea.",
+  "Category": "Vegetable",
+  "Edibility": -300,
+  "Price": 45,
+  "IsColored": false,
+  "Recipe": null,
+}

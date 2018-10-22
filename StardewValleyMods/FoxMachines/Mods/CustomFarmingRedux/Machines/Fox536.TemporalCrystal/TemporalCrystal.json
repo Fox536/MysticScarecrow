@@ -12,9 +12,10 @@
 		   "category": "Crafting",
 		   "texture": "TemporalCrystal.png",
 		   "tileindex": 0,
-		   "shop": "Robin",
-		   "price": "40000",
-		   "crafting": "768 50 74 5",
+		   "forsale": true,
+		   "shop": "Clint",
+		   "price": "80000",
+		   "crafting": "768 50 337 5",
 		   "frames": 8
 	   },
 	   {
@@ -25,9 +26,10 @@
 		   "category": "Crafting",
 		   "texture": "TemporalCrystalGreen.png",
 		   "tileindex": 0,
-		   "shop": "Robin",
-		   "price": "80000",
-		   "crafting": "768 100 74 10",
+		   "forsale": true,
+		   "shop": "Clint",
+		   "price": "150000",
+		   "crafting": "768 100 337 10",
 		   "frames": 8
 	   },
 	   {
@@ -38,9 +40,10 @@
 		   "category": "Crafting",
 		   "texture": "TemporalCrystalRed.png",
 		   "tileindex": 0,
-		   "shop": "Robin",
-		   "price": "120000",
-		   "crafting": "768 200 74 25",
+		   "forsale": true,
+		   "shop": "Clint",
+		   "price": "300000",
+		   "crafting": "768 200 337 25",
 		   "frames": 8
 	   },
 	]

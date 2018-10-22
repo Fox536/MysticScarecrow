@@ -1,0 +1,9 @@
+{
+  "Name": "Lime",
+  "Description": "The tarter cousin of the lemon. It is often used as an accent to numerous dishes.",
+  "Category": "Fruit",
+  "Edibility": 15,
+  "Price": 50,
+  "IsColored": false,
+  "Recipe": null,
+}

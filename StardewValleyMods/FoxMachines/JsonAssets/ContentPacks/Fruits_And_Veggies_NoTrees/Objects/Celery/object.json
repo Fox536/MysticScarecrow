@@ -1,0 +1,9 @@
+{
+  "Name": "Celery",
+  "Description": "Crisp and refreshing, it has little inherent taste on its own.",
+  "Category": "Vegetable",
+  "Edibility": 8,
+  "Price": 70,
+  "IsColored": false,
+  "Recipe": null,
+}

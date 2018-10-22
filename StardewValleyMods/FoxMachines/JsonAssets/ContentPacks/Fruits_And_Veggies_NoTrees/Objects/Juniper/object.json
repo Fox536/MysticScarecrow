@@ -1,0 +1,9 @@
+{
+  "Name": "Juniper",
+  "Description": "Tart and not usually eaten on their own, but they ferment into gin.",
+  "Category": "Fruit",
+  "Edibility": 15,
+  "Price": 50,
+  "IsColored": false,
+  "Recipe": null,
+}

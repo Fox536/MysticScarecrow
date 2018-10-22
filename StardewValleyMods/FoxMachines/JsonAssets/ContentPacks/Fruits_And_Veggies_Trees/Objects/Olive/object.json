@@ -1,0 +1,9 @@
+{
+  "Name": "Olive",
+  "Description": "It is packed with vitamins! Olives are used to make oil and salads.",
+  "Category": "Vegetable",
+  "Edibility": 12,
+  "Price": 50,
+  "IsColored": false,
+  "Recipe": null,
+}

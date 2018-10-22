@@ -1,0 +1,9 @@
+{
+  "Name": "Camphor Leaves",
+  "Description": "Glossy oval leaves that are very fragrant when crushed.",
+  "Category": "Vegetable",
+  "Edibility": -300,
+  "Price": 100,
+  "IsColored": false,
+  "Recipe": null,
+}

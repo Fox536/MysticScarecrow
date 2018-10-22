@@ -1,0 +1,9 @@
+{
+  "Name": "Carrot",
+  "Description": "The old wive's tale says that eating carrots helps improve eyesight.",
+  "Category": "Vegetable",
+  "Edibility": 10,
+  "Price": 65,
+  "IsColored": false,
+  "Recipe": null,
+}

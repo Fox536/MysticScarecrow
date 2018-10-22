@@ -1,0 +1,9 @@
+{
+  "Name": "Sweet Potato",
+  "Description": "The nicer cousin of the potato. It is sweet and earthy when baked.",
+  "Category": "Vegetable",
+  "Edibility": 10,
+  "Price": 120,
+  "IsColored": false,
+  "Recipe": null,
+}

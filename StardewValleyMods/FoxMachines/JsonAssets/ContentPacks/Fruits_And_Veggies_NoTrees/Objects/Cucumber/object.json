@@ -1,0 +1,9 @@
+{
+  "Name": "Cucumber",
+  "Description": "A delicious and watery snack.",
+  "Category": "Vegetable",
+  "Edibility": 20,
+  "Price": 90,
+  "IsColored": false,
+  "Recipe": null,
+}

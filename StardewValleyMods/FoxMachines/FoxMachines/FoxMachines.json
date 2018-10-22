@@ -1,0 +1,300 @@
+{
+   "name": "FoxMachines",
+   "author": "Fox536",
+   "version": "1.0.0",
+   "machines":
+   [
+		{
+		   "id": 0,
+		   "name": "Large Growing Tree",
+		   "legacy": "Fox536.json",
+		   "description": "Produces wood out of cosmic energy",
+		   "category": "Crafting",
+		   "texture": "Machines.png",
+		   "tileindex": 1,
+		   "forsale": true,
+		   "shop": "Robin",
+		   "price": "40000",
+		   "crafting": "336 20 768 20 388 200 337 1",
+		   "production":
+			[
+				{
+					"index": 388,
+					"time": 1200,
+					"stack": 100
+				}
+			]
+	   },
+	   {
+		   "id": 1,
+		   "name": "Large Growing Stone",
+		   "legacy": "Fox536.json",
+		   "description": "Produces stones out of cosmic energy",
+		   "category": "Crafting",
+		   "texture": "Machines.png",
+		   "tileindex": 5,
+		   "forsale": true,
+		   "shop": "Clint",
+		   "price": "40000",
+		   "crafting": "336 20 768 20 390 200 337 1",
+		   "production":
+			[
+				{
+					"index": 390,
+					"time": 1200,
+					"stack": 100
+				}
+			]
+	   },
+	   {
+		   "id": 2,
+		   "name": "Prismatic Shard Extractor",
+		   "legacy": "Fox536.json",
+		   "description": "Produces Primatic Shards out of cosmic energy every week.",
+		   "category": "Crafting",
+		   "texture": "Machines.png",
+		   "tileindex": 15,
+		   "crafting": "336 20 768 20 337 30",
+		   "production":
+			[
+				{
+					"index": 74,
+					"time": 10000,
+					"stack": 1
+				}
+			]
+	   },
+	   {
+		   "id": 3,
+		   "name": "Coal Extractor",
+		   "legacy": "Fox536.json",
+		   "description": "Produces coal out of cosmic energy every day.",
+		   "category": "Crafting",
+		   "texture": "Machines.png",
+		   "tileindex": 7,
+		   "forsale": true,
+		   "shop": "Clint",
+		   "price": "75000",
+		   "crafting": "336 20 768 20 382 100 337 1",
+		   "production":
+			[
+				{
+					"index": 382,
+					"time": 1200,
+					"stack": 25
+				}
+			]
+	   },
+	   {
+		   "id": 4,
+		   "name": "Copper Extractor",
+		   "legacy": "Fox536.json",
+		   "description": "Produces copper out of cosmic energy every day.",
+		   "category": "Crafting",
+		   "texture": "Machines.png",
+		   "tileindex": 9,
+		   "forsale": true,
+		   "shop": "Clint",
+		   "price": "40000",
+		   "crafting": "336 20 768 20 378 100 337 1",
+		   "production":
+			[
+				{
+					"index": 378,
+					"time": 1200,
+					"stack": 25
+				}
+			]
+	   },
+	   {
+		   "id": 5,
+		   "name": "Iron Extractor",
+		   "legacy": "Fox536.json",
+		   "description": "Produces iron out of cosmic energy every day.",
+		   "category": "Crafting",
+		   "texture": "Machines.png",
+		   "tileindex": 11,
+		   "forsale": true,
+		   "shop": "Clint",
+		   "price": "80000",
+		   "crafting": "336 20 768 20 380 100 337 1",
+		   "production":
+			[
+				{
+					"index": 380,
+					"time": 1200,
+					"stack": 25
+				}
+			]
+	   },
+	   {
+		   "id": 6,
+		   "name": "Gold Extractor",
+		   "legacy": "Fox536.json",
+		   "description": "Produces gold out of cosmic energy every day.",
+		   "category": "Crafting",
+		   "texture": "Machines.png",
+		   "tileindex": 13,
+		   "forsale": true,
+		   "shop": "Clint",
+		   "price": "120000",
+		   "crafting": "336 20 768 20 384 100 337 1",
+		   "production":
+			[
+				{
+					"index": 384,
+					"time": 1200,
+					"stack": 25
+				}
+			]
+	   },
+	   {
+		   "id": 7,
+		   "name": "Growing Shrub",
+		   "legacy": "Fox536.json",
+		   "description": "Produces wood every few hours.",
+		   "category": "Crafting",
+		   "texture": "Machines.png",
+		   "tileindex": 2,
+		   "forsale": true,
+		   "shop": "Robin",
+		   "price": "10000",
+		   "crafting": "768 5 388 100",
+		   "production":
+			[
+				{
+					"index": 388,
+					"time": 240,
+					"stack": 25
+				}
+			]
+	   },
+	   {
+		   "id": 8,
+		   "name": "Growing Rock",
+		   "legacy": "Fox536.json",
+		   "description": "Produces stone every few hours.",
+		   "category": "Crafting",
+		   "texture": "Machines.png",
+		   "tileindex": 4,
+		   "forsale": true,
+		   "shop": "Clint",
+		   "price": "10000",
+		   "crafting": "768 5 390 100",
+		   "production":
+			[
+				{
+					"index": 390,
+					"time": 240,
+					"stack": 25
+				}
+			]
+	   },
+	   {
+		   "id": 9,
+		   "name": "Growing Quartz",
+		   "legacy": "Fox536.json",
+		   "description": "Produces quartz every 10 hours.",
+		   "category": "Crafting",
+		   "texture": "Machines.png",
+		   "tileindex": 17,
+		   "forsale": true,
+		   "shop": "Clint",
+		   "price": "50000",
+		   "crafting": "336 20 768 20 80 20 337 1",
+		   "production":
+			[
+				{
+					"index": 80,
+					"time": 600,
+					"stack": 1
+				}
+			]
+	   },
+	   {
+		   "id": 10,
+		   "name": "Growing Weeds",
+		   "legacy": "Fox536.json",
+		   "description": "Produces fiber every few hours.",
+		   "category": "Crafting",
+		   "texture": "Machines.png",
+		   "tileindex": 20,
+		   "forsale": true,
+		   "shop": "Robin",
+		   "price": "5000",
+		   "crafting": "768 5 771 200",
+		   "production":
+			[
+				{
+					"index": 771,
+					"time": 240,
+					"stack": 25
+				}
+			]
+	   },
+	   {
+		   "id": 11,
+		   "name": "Advanced Solar Panel",
+		   "legacy": "Fox536.json",
+		   "description": "Produces Batteries from solar energy every week.",
+		   "category": "Crafting",
+		   "texture": "SolarPanel.png",
+		   "tileindex": 0,
+		   "forsale": true,
+		   "shop": "Clint",
+		   "price": "50000",
+		   "production":
+			[
+				{
+					"index": 787,
+					"time": 10000,
+					"stack": 1
+				}
+			]
+	   },
+	   {
+		   "id": 12,
+		   "name": "Solar Panel",
+		   "legacy": "Fox536.json",
+		   "description": "Produces Batteries from solar energy every few week.",
+		   "category": "Crafting",
+		   "texture": "SolarPanel.png",
+		   "tileindex": 0,
+		   "forsale": true,
+		   "shop": "Clint",
+		   "price": "10000",
+		   "production":
+			[
+				{
+					"index": 787,
+					"time": 30000,
+					"stack": 1
+				}
+			]
+	   },
+	   {
+		   "id": 13,
+		   "name": "Collector",
+		   "legacy": "Fox536.json",
+		   "description": "Collects nearby Mystic Machines.",
+		   "category": "Crafting",
+		   "texture": "Collector.png",
+		   "tileindex": 0,
+		   "forsale": true,
+		   "shop": "Clint",
+		   "price": "10000",
+	   },
+	   {
+		   "id": 14,
+		   "name": "Sap Collector",
+		   "legacy": "Fox536.json",
+		   "description": "Collects nearby Tappers.",
+		   "category": "Crafting",
+		   "texture": "Collector.png",
+		   "tileindex": 1,
+		   "forsale": true,
+		   "shop": "Clint",
+		   "price": "30000",
+	   },
+	]
+}

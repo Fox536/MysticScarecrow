@@ -1,0 +1,9 @@
+{
+  "Name": "Ginger",
+  "Description": "It is a flavoring agent in beer, soft drinks, candies, and a staple spice and condiment in many countries.",
+  "Category": "Vegetable",
+  "Edibility": 8,
+  "Price": 80,
+  "IsColored": false,
+  "Recipe": null,
+}

@@ -1,0 +1,9 @@
+{
+  "Name": "Fig",
+  "Description": "A small and sweet fruit. It is soft and delicious.",
+  "Category": "Fruit",
+  "Edibility": 15,
+  "Price": 100,
+  "IsColored": false,
+  "Recipe": null,
+}

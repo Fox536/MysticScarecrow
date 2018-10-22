@@ -1,0 +1,9 @@
+{
+  "Name": "Pear",
+  "Description": "A mildly sweet fruit that grows in the winter. Let it ripen for a few days before eating.",
+  "Category": "Fruit",
+  "Edibility": 15,
+  "Price": 135,
+  "IsColored": false,
+  "Recipe": null,
+}

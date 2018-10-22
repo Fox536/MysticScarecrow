@@ -1,0 +1,9 @@
+{
+  "Name": "Melaleuca Leaves",
+  "Description": "A prickly cone of leaves that are often used as a homemade remedy for cuts and bruises.",
+  "Category": "Vegetable",
+  "Edibility": -300,
+  "Price": 100,
+  "IsColored": false,
+  "Recipe": null,
+}

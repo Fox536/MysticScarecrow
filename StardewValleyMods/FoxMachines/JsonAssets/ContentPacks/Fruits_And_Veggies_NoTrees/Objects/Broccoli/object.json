@@ -1,0 +1,9 @@
+{
+  "Name": "Broccoli",
+  "Description": "The soft top of this vegetable is leafy and fluffy.",
+  "Category": "Vegetable",
+  "Edibility": 15,
+  "Price": 120,
+  "IsColored": false,
+  "Recipe": null,
+}

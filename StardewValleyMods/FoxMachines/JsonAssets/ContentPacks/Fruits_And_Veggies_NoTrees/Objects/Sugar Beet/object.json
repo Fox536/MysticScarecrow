@@ -1,0 +1,9 @@
+{
+  "Name": "Sugar Beet",
+  "Description": "This tuber has a high concentration of sucrose. It is good for processing into sugar!",
+  "Category": "Vegetable",
+  "Edibility": 8,
+  "Price": 180,
+  "IsColored": false,
+  "Recipe": null,
+}

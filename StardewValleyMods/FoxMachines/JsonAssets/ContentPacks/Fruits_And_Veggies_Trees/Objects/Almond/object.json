@@ -1,0 +1,9 @@
+{
+  "Name": "Almond",
+  "Description": "A drupe consisting of an outer hull and a hard shell with the seed within.",
+  "Category": "Vegetable",
+  "Edibility": 12,
+  "Price": 90,
+  "IsColored": false,
+  "Recipe": null,
+}

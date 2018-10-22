@@ -1,0 +1,24 @@
+{
+  "Name": "Granny Pom Tea",
+  "Description": "An invigorating combination of pomegranates and green tea.",
+  "Category": "Cooking",
+  "Edibility": 20,
+  "EdibleIsDrink": true,
+  "EdibleBuffs": null,
+  "Price": 300,
+  "IsColored": false,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Tea Leaf",
+        "Count": 2,
+      },
+      {
+        "Object": 637,
+        "Count": 1,
+      }
+    ],
+    "IsDefault": true,
+  }
+}

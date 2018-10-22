@@ -1,0 +1,33 @@
+{
+  "Name": "Fig Tart",
+  "Description": "Simple snacks that beg you to eat more than one.",
+  "Category": "Cooking",
+  "Edibility": 12,
+  "EdibleIsDrink": false,
+  "EdibleBuffs": null,
+  "Price": 75,
+  "IsColored": false,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Fig",
+        "Count": 1,
+      },
+      {
+        "Object": 246,
+        "Count": 1,
+      },
+      {
+        "Object": -5,
+        "Count": 1,
+      }
+    ],
+    "CanPurchase": true,
+    "PurchaseFrom": "Gus",
+    "PurchasePrice": 650,
+    "PurchaseRequirements": [
+      "f Robin 1250",
+    ]
+  }
+}

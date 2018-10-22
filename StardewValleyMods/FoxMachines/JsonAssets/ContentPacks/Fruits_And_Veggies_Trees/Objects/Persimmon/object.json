@@ -1,0 +1,9 @@
+{
+  "Name": "Persimmon",
+  "Description": "A somewhat uncommon fruit filled with a honey-like flavor.",
+  "Category": "Fruit",
+  "Edibility": 15,
+  "Price": 155,
+  "IsColored": false,
+  "Recipe": null,
+}

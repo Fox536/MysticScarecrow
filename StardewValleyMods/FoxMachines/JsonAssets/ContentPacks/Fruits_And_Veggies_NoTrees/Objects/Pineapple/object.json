@@ -1,0 +1,9 @@
+{
+  "Name": "Pineapple",
+  "Description": "Sweet and sugary. It is versatile and can be used in desserts, salads, and drinks!",
+  "Category": "Fruit",
+  "Edibility": 15,
+  "Price": 270,
+  "IsColored": false,
+  "Recipe": null,
+}

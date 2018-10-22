@@ -1,0 +1,9 @@
+{
+  "Name": "Gooseberry",
+  "Description": "A large round berry that makes for tasty pies.",
+  "Category": "Fruit",
+  "Edibility": 15,
+  "Price": 50,
+  "IsColored": false,
+  "Recipe": null,
+}

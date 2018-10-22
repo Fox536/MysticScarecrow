@@ -1,0 +1,9 @@
+{
+  "Name": "Grapefruit",
+  "Description": "A large bitter fruit, high in Vitamin C. Are you a salty or sugary kind of person?",
+  "Category": "Fruit",
+  "Edibility": 15,
+  "Price": 140,
+  "IsColored": false,
+  "Recipe": null,
+}

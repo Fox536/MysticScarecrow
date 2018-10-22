@@ -1,0 +1,9 @@
+{
+  "Name": "Adzuki Bean",
+  "Description": "Mash it and it becomes a paste.",
+  "Category": "Vegetable",
+  "Edibility": 22,
+  "Price": 90,
+  "IsColored": false,
+  "Recipe": null,
+}

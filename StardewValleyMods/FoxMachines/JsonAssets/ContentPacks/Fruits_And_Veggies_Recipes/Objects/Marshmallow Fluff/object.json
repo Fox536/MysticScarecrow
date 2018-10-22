@@ -1,0 +1,13 @@
+{
+  "Name": "Marshmallow Fluff",
+  "Description": "It's light and fluffy!",
+  "Category": "ArtisanGoods",
+  "Edibility": 5,
+  "Price": 30,
+  "IsColored": false,
+  "Recipe": null,
+  "CanPurchase": true,
+    "PurchaseFrom": "Gus",
+    "PurchasePrice": 50,
+    "PurchaseRequirements": null,
+}

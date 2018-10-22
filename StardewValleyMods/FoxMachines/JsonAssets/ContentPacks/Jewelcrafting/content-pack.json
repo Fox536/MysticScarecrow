@@ -1,0 +1,12 @@
+{
+   "Name": "Jewelcrafting",
+   "Author": "Undare",
+   "Description": "Jewelry and enchanted jewelry.",
+   "Version": "1.3",
+   "UniqueID": "Jewelcrafting",   ///Any name works.. right?
+   "UpdateKeys": [ "Nexus:1861" ],
+   "ContentPack": {
+      "ForModID": "spacechase0.JsonAssets",
+      "Subfolder": "ContentPacks/Jewelcrafting"
+   }
+}

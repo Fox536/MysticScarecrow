@@ -1,0 +1,29 @@
+{
+  "Name": "Dandelion White Tea",
+  "Description": "The fresh dandelion in this rejuvenates your senses.",
+  "Category": "Cooking",
+  "Edibility": 15,
+  "EdibleIsDrink": true,
+  "EdibleBuffs": null,
+  "Price": 135,
+  "IsColored": false,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": 22,
+        "Count": 1,
+      },
+      {
+        "Object": "Tea Leaf",
+        "Count": 1,
+      }
+    ],
+    "CanPurchase": true,
+    "PurchaseFrom": "Gus",
+    "PurchasePrice": 650,
+    "PurchaseRequirements": [
+      "r 0.50",
+    ]
+  }
+}

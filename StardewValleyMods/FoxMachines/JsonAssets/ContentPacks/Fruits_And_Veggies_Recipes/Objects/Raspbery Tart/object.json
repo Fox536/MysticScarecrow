@@ -1,0 +1,34 @@
+{
+  "Name": "Raspberry Tart",
+  "Description": "A raspberry filled tart.",
+  "Category": "Cooking",
+  "Edibility": 20,
+  "EdibleIsDrink": false,
+  "EdibleBuffs": null,
+  "Price": 75,
+  "IsColored": false,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Raspberry",
+        "Count": 1,
+      },
+      {
+        "Object": 176,
+        "Count": 1,
+      },
+      {
+        "Object": 246,
+        "Count": 1,
+      }
+    ],
+    "CanPurchase": true,
+    "PurchaseFrom": "Gus",
+    "PurchasePrice": 350,
+    "PurchaseRequirements": [
+"f Robin 750",
+],
+    
+  }
+}

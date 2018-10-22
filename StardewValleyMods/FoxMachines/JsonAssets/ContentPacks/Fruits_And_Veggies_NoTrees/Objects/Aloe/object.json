@@ -1,0 +1,9 @@
+{
+  "Name": "Aloe",
+  "Description": "It can be used to treat sunburns.",
+  "Category": "Vegetable",
+  "Edibility": 20,
+  "Price": 140,
+  "IsColored": false,
+  "Recipe": null,
+}

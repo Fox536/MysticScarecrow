@@ -1,0 +1,9 @@
+{
+  "Name": "Cassava",
+  "Description": "A hardy tuber from tropical climates, it has a woody flavor.",
+  "Category": "Vegetable",
+  "Edibility": -300,
+  "Price": 80,
+  "IsColored": false,
+  "Recipe": null,
+}

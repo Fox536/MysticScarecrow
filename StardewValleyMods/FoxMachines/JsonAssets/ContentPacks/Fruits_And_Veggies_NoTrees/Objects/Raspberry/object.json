@@ -1,0 +1,9 @@
+{
+  "Name": "Raspberry",
+  "Description": "An extremely tart berry that has a warm glow.",
+  "Category": "Fruit",
+  "Edibility": 15,
+  "Price": 30,
+  "IsColored": false,
+  "Recipe": null,
+}

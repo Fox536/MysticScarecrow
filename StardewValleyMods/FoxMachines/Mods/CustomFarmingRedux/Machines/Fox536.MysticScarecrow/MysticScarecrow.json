@@ -12,9 +12,10 @@
 		   "category": "Scarecrow",
 		   "texture": "Scarecrow.png",
 		   "tileindex": 0,
+		   "forsale": true,
 		   "shop": "Robin",
-		   "price": "50000",
-		   "crafting": "768 200 74 25",
+		   "price": "100000",
+		   "crafting": "768 200 337 25 645 1",
 		   "frames": 6
 	   },
 	]

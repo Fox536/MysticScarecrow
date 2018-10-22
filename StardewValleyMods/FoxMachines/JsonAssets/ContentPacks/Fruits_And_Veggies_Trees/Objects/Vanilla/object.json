@@ -1,0 +1,9 @@
+{
+  "Name": "Vanilla Bean Pod",
+  "Description": "Easily be one of the most well-known flavors in the world. Who’s hungry for ice cream?",
+  "Category": "Vegetable",
+  "Edibility": -300,
+  "Price": 200,
+  "IsColored": false,
+  "Recipe": null,
+}

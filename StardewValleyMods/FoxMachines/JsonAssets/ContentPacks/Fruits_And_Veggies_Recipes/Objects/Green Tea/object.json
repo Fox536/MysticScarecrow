@@ -1,0 +1,20 @@
+{
+  "Name": "Green Tea",
+  "Description": "A mild brew with aged leaves; tastes great!",
+  "Category": "Cooking",
+  "Edibility": 10,
+  "EdibleIsDrink": true,
+  "EdibleBuffs": null,
+  "Price": 100,
+  "IsColored": false,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Tea Leaf",
+        "Count": 2,
+      }
+    ],
+    "IsDefault": true,
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "Name": "Unpolished Rice",
+  "Description": "Put it in the grinder to prepare it for cooking or selling.",
+  "Category": "Vegetable",
+  "Edibility": -300,
+  "Price": 30,
+  "IsColored": false,
+  "Recipe": null,
+}

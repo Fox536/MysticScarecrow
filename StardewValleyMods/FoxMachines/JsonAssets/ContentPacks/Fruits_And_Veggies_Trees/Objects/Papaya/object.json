@@ -1,0 +1,9 @@
+{
+  "Name": "Papaya",
+  "Description": "A tropical fruit from the rainforest. It has a sweet flavor and a lot of natural juiciness.",
+  "Category": "Fruit",
+  "Edibility": 15,
+  "Price": 135,
+  "IsColored": false,
+  "Recipe": null,
+}

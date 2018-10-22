@@ -1,0 +1,9 @@
+{
+  "Name": "Rosemary",
+  "Description": "The smell of rosemary is piney and fresh; familiar but also distinctive.",
+  "Category": "Vegetable",
+  "Edibility": 18,
+  "Price": 75,
+  "IsColored": false,
+  "Recipe": null,
+}

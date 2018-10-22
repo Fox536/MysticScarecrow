@@ -1,0 +1,37 @@
+{
+  "Name": "Farofa",
+  "Description": "A toasted mix of ground cassava and other veggies.",
+  "Category": "Cooking",
+  "Edibility": 35,
+  "EdibleIsDrink": false,
+  "EdibleBuffs": null,
+  "Price": 130,
+  "IsColored": false,
+  "Recipe": {
+    "ResultCount": 1,
+    "Ingredients": [
+      {
+        "Object": "Cassava",
+        "Count": 2,
+      },
+      {
+        "Object": 248,
+        "Count": 1,
+      },
+      {
+        "Object": "Olive",
+        "Count": 1,
+      },
+      {
+        "Object": "Onion",
+        "Count": 1,
+      }
+    ],
+    "CanPurchase": true,
+    "PurchaseFrom": "Gus",
+    "PurchasePrice": 650,
+    "PurchaseRequirements": [
+      "f Sandy 1250",
+    ]
+  }
+}

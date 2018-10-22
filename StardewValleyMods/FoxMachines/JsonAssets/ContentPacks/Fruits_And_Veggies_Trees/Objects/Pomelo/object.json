@@ -1,0 +1,9 @@
+{
+  "Name": "Pomelo",
+  "Description": "A really large, not so bitter, cousin of the grapefruit.",
+  "Category": "Fruit",
+  "Edibility": 15,
+  "Price": 80,
+  "IsColored": false,
+  "Recipe": null,
+}

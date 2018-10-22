@@ -1,0 +1,9 @@
+{
+  "Name": "Sweet Canary Melon",
+  "Description": "A bright yellow melon, it is distinctively sweet and tangy.",
+  "Category": "Fruit",
+  "Edibility": 45,
+  "Price": 225,
+  "IsColored": false,
+  "Recipe": null,
+}
