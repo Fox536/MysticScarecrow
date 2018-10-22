@@ -99,7 +99,7 @@ namespace Fox536.ResourceGen
 		}
 		private void SpawnBoulder(Farm farm, Vector2 point)
 		{
-			ClearResourceClump(ref farm.resourceClumps, point);
+			ClearResourceClump(farm.resourceClumps, point);
 			farm.addResourceClumpAndRemoveUnderlyingTerrain(ResourceClump.boulderIndex, 2, 2, point);
 		}
 
@@ -115,7 +115,7 @@ namespace Fox536.ResourceGen
 		{
 			StardewValley.TerrainFeatures.Tree t = new Tree(1, 5);
 			t.seasonUpdate(true);
-			ClearResourceClump(ref farm.resourceClumps, point);
+			ClearResourceClump(farm.resourceClumps, point);
 			TerrainFeature feature = null;
 			if (farm.terrainFeatures.TryGetValue(point, out feature))
 			{
@@ -138,7 +138,7 @@ namespace Fox536.ResourceGen
 		}
 		private void SpawnLog(Farm farm, Vector2 point)
 		{
-			ClearResourceClump(ref farm.resourceClumps, point);
+			ClearResourceClump(farm.resourceClumps, point);
 			farm.addResourceClumpAndRemoveUnderlyingTerrain(ResourceClump.hollowLogIndex, 2, 2, point);
 		}
 
@@ -151,7 +151,7 @@ namespace Fox536.ResourceGen
 		}
 		private void SpawnStump(Farm farm, Vector2 point)
 		{
-			ClearResourceClump(ref farm.resourceClumps, point);
+			ClearResourceClump(farm.resourceClumps, point);
 			farm.addResourceClumpAndRemoveUnderlyingTerrain(ResourceClump.stumpIndex, 2, 2, point);
 		}
 
@@ -169,7 +169,7 @@ namespace Fox536.ResourceGen
 			{
 				if (check is Grass)
 				{
-					((Grass)check).numberOfWeeds = 4;
+					((Grass)check).numberOfWeeds.Value = 4;
 				}
 			}
 			else
@@ -278,7 +278,7 @@ namespace Fox536.ResourceGen
 			}
 			//}
 		}
-		static void ClearResourceClump(ref List<ResourceClump> input, Vector2 RCLocation)
+		static void ClearResourceClump(Netcode.NetCollection<ResourceClump> input, Vector2 RCLocation)
 		{
 			for (int i = 0; i < input.Count; i++)
 			{

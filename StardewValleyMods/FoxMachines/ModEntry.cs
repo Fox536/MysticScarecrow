@@ -62,7 +62,7 @@ namespace Fox536.Machines
 		{
 			foreach (GameLocation location in Game1.locations)
 			{
-				foreach (KeyValuePair<Vector2, StardewValley.Object> item in location.objects)
+				foreach (KeyValuePair<Vector2, StardewValley.Object> item in location.objects.Pairs)
 				{
 					c.SprinklerScarecrow sprinkler = config.SprinklerScarecrowConfig.Find(x => x.Name == item.Value.name);
 					if (sprinkler != null)
@@ -93,118 +93,6 @@ namespace Fox536.Machines
 		{
 			WaterAreaCircle(location, centerPoint, sprinkler.Width);
 			return;
-
-			Vector2 currentPoint = centerPoint;// new Vector2(centerPoint.X, centerPoint.Y);
-
-			int width = sprinkler.Width;
-			int halfWidth = ((width - 1) / 2);
-
-			// Main Section
-			WaterAreaSquare(location, centerPoint, 6);
-
-			// West Section 1
-			for (int y = 0; y < width - 2; y++)
-			{
-				currentPoint.X = centerPoint.X - halfWidth - 1;
-				currentPoint.Y = centerPoint.Y - halfWidth + 1 + y;
-				if (location.terrainFeatures.ContainsKey(currentPoint))
-				{
-					if (location.terrainFeatures[currentPoint] is HoeDirt)
-					{
-						(location.terrainFeatures[currentPoint] as HoeDirt).state = 1;
-					}
-				}
-			}
-			for (int y = 0; y < width - 4; y++)
-			{
-				currentPoint.X = centerPoint.X - halfWidth - 2;
-				currentPoint.Y = centerPoint.Y - halfWidth + 2 + y;
-				if (location.terrainFeatures.ContainsKey(currentPoint))
-				{
-					if (location.terrainFeatures[currentPoint] is HoeDirt)
-					{
-						(location.terrainFeatures[currentPoint] as HoeDirt).state = 1;
-					}
-				}
-			}
-			// East Section 1
-			for (int y = 0; y < width - 2; y++)
-			{
-				currentPoint.X = centerPoint.X + halfWidth + 1;
-				currentPoint.Y = centerPoint.Y - halfWidth + 1 + y;
-				if (location.terrainFeatures.ContainsKey(currentPoint))
-				{
-					if (location.terrainFeatures[currentPoint] is HoeDirt)
-					{
-						(location.terrainFeatures[currentPoint] as HoeDirt).state = 1;
-					}
-				}
-			}
-			for (int y = 0; y < width - 4; y++)
-			{
-				currentPoint.X = centerPoint.X + halfWidth + 2;
-				currentPoint.Y = centerPoint.Y - halfWidth + 2 + y;
-				if (location.terrainFeatures.ContainsKey(currentPoint))
-				{
-					if (location.terrainFeatures[currentPoint] is HoeDirt)
-					{
-						(location.terrainFeatures[currentPoint] as HoeDirt).state = 1;
-					}
-				}
-			}
-
-			// North Section 1
-			for (int x = 0; x < width - 2; x++)
-			{
-				currentPoint.X = centerPoint.X - halfWidth + 1 + x;
-				currentPoint.Y = centerPoint.Y - halfWidth - 1;
-				if (location.terrainFeatures.ContainsKey(currentPoint))
-				{
-					if (location.terrainFeatures[currentPoint] is HoeDirt)
-					{
-						(location.terrainFeatures[currentPoint] as HoeDirt).state = 1;
-					}
-				}
-			}
-			for (int x = 0; x < width - 4; x++)
-			{
-				currentPoint.X = centerPoint.X - halfWidth + 2 + x;
-				currentPoint.Y = centerPoint.Y - halfWidth - 2;
-				if (location.terrainFeatures.ContainsKey(currentPoint))
-				{
-					if (location.terrainFeatures[currentPoint] is HoeDirt)
-					{
-						(location.terrainFeatures[currentPoint] as HoeDirt).state = 1;
-					}
-				}
-			}
-
-			// Sout Section 1
-			for (int x = 0; x < width - 2; x++)
-			{
-				currentPoint.X = centerPoint.X - halfWidth + 1 + x;
-				currentPoint.Y = centerPoint.Y + halfWidth + 1;
-				if (location.terrainFeatures.ContainsKey(currentPoint))
-				{
-					if (location.terrainFeatures[currentPoint] is HoeDirt)
-					{
-						(location.terrainFeatures[currentPoint] as HoeDirt).state = 1;
-					}
-				}
-			}
-			for (int x = 0; x < width - 4; x++)
-			{
-				currentPoint.X = centerPoint.X - halfWidth + 2 + x;
-				currentPoint.Y = centerPoint.Y + halfWidth + 2;
-				if (location.terrainFeatures.ContainsKey(currentPoint))
-				{
-					if (location.terrainFeatures[currentPoint] is HoeDirt)
-					{
-						(location.terrainFeatures[currentPoint] as HoeDirt).state = 1;
-					}
-				}
-			}
-			
 		}
 		private void WaterSprinklerArea(GameLocation location, Vector2 centerPoint, c.SprinklerArea sprinklerArea)
 		{
@@ -279,7 +167,7 @@ namespace Fox536.Machines
 					{
 						if (location.terrainFeatures[currentPoint] is HoeDirt)
 						{
-							(location.terrainFeatures[currentPoint] as HoeDirt).state = 1;
+							(location.terrainFeatures[currentPoint] as HoeDirt).state.Value = 1;
 						}
 					}
 				}
@@ -295,7 +183,7 @@ namespace Fox536.Machines
 				{
 					if (location.terrainFeatures[point] is HoeDirt)
 					{
-						(location.terrainFeatures[point] as HoeDirt).state = state;
+						(location.terrainFeatures[point] as HoeDirt).state.Value = state;
 					}
 				}
 			}
@@ -404,7 +292,8 @@ namespace Fox536.Machines
 		{
 			if (location == null || location.objects == null)
 				return;
-			foreach (KeyValuePair<Vector2, StardewValley.Object> item in location.objects)
+
+			foreach (KeyValuePair<Vector2, StardewValley.Object> item in location.objects.Pairs)
 			{
 				StardewValley.Object machine = item.Value;
 				if (item.Value == null)
@@ -428,11 +317,11 @@ namespace Fox536.Machines
 
 
 				// Make Beehive work indoors
-				if (item.Value.name == BeeHiveName)
-				{
-					UpdateBeehive(location, machine, timePassed);
-					continue;
-				}
+				//if (item.Value.name == BeeHiveName)
+				//{
+					//UpdateBeehive(location, machine, timePassed);
+					//continue;
+				//}
 				
 				// Machine Speed Boost
 				c.SpeedIncreaser speedIncreaser = config.SpeedIncreaserConfig.Find(x => x.Name == machine.name);
@@ -453,7 +342,7 @@ namespace Fox536.Machines
 		{
 			// Allow beehive to function in Greenhouse
 			if (location.Name == "Greenhouse" || location.Name.Contains("Shed"))
-				machine.minutesUntilReady = Math.Max(machine.minutesUntilReady - timePassed, 0);
+				machine.minutesUntilReady.Value = Math.Max(machine.minutesUntilReady - timePassed, 0);
 		}
 		private void TemporalIncreaser(GameLocation location, c.SpeedIncreaser speedIncreaser, StardewValley.Object machine, int timePassed)
 		{
@@ -476,7 +365,7 @@ namespace Fox536.Machines
 					if (location.objects.ContainsKey(currentPoint))
 					{
 						affectedMachine = location.objects[currentPoint];
-						affectedMachine.minutesUntilReady = Math.Max(affectedMachine.minutesUntilReady - (int)Math.Floor(timePassed * modifier), 0);
+						affectedMachine.minutesUntilReady.Value = Math.Max(affectedMachine.minutesUntilReady - (int)Math.Floor(timePassed * modifier), 0);
 					}
 				}
 			}
@@ -495,7 +384,7 @@ namespace Fox536.Machines
 		private StardewValley.Objects.Chest CollectMachines(GameLocation location, StardewValley.Object machine, StardewValley.Objects.Chest collectorChest)
 		{
 			if (machine.readyForHarvest && machine.heldObject != null)
-				if (machine.heldObject is StardewValley.Item item)
+				if (machine.heldObject.Value is Item item)
 					collectorChest.addItem(item);
 			
 			return collectorChest;
@@ -505,9 +394,9 @@ namespace Fox536.Machines
 		{
 			List<Vector2> surroundingTiles = new List<Vector2>();
 			Vector2 tempPoint = new Vector2();
-			for (int x; x < 3; x++)
+			for (int x = 0; x < 3; x++)
 			{
-				for (int y; y < 3; y++)
+				for (int y = 0; y < 3; y++)
 				{
 					tempPoint.X = centerPoint.X - 1 + x;
 					tempPoint.Y = centerPoint.Y - 1 + y;

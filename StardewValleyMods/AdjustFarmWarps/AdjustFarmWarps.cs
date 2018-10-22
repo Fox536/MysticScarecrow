@@ -66,7 +66,7 @@ namespace Fox536.AdjustFarmWarps
 
 				if (modConfig.Warps_Backwoods.X != -1)
 				{
-					if (location.name.ToLower().Contains("backwood"))
+					if (location.name.Value.ToLower().Contains("backwood"))
 					{
 						foreach (Warp w in location.warps)
 						{
@@ -81,7 +81,7 @@ namespace Fox536.AdjustFarmWarps
 
 				if (modConfig.Warps_Busstop.X != -1)
 				{
-					if (location.name.ToLower().Contains("busstop"))
+					if (location.name.Value.ToLower().Contains("busstop"))
 					{
 						foreach (Warp w in location.warps)
 						{
