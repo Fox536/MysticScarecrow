@@ -74,6 +74,9 @@ namespace Fox536.ResourceGen
 			if (modConfig.doSpawnOre)
 				AddMineObjs(farm);
 
+			if (modConfig.doSpawnOre2)
+				AddMineObjs2(farm);
+
 			if (modConfig.doSpawnBoulders)
 				SpawnBoulders(farm);
 
@@ -183,7 +186,7 @@ namespace Fox536.ResourceGen
 		#region Mine Methods
 		private void AddMineObjs(Farm farm)
 		{
-			print("adding mine objs");
+			//print("adding mine objs");
 			// Create Mine Area if needed
 			// Mine Area
 			//if (modConfig.AddMineArea)
@@ -278,6 +281,135 @@ namespace Fox536.ResourceGen
 			}
 			//}
 		}
+		private void AddMineObjs2(Farm farm)
+		{
+			Random randomGen = new Random();
+			modConfig.MineLocations2 = MineArea.CombineAllDuplicates(modConfig.MineLocations2);
+
+			// Loop through Maps and Add stuff at selected area
+			foreach (var mineArea in modConfig.MineLocations2)
+			{
+				int amount = modConfig.MinOreLimit;
+				List<Vector2> area = MineArea.GetArea(mineArea);
+				print("Creating Ore for: " + mineArea.LocationName);
+
+				GameLocation location = null;
+				foreach (var loc in Game1.locations)
+				{
+					if (loc.Name == mineArea.LocationName)
+					{
+						location = loc;
+					}
+				}
+				if (location == null)
+				{
+					print("Cancelling Ore for: " + mineArea.LocationName);
+					continue;
+				}
+
+				foreach (Vector2 tile in area)
+				{
+					if ((modConfig.UseMineOreLimit) && (amount < 0))
+					{
+						break;
+					}
+
+					if (!modConfig.OreUseMineLevel)
+					{
+						if (randomGen.NextDouble() < modConfig.oreChance)
+						{
+							amount--;
+							addRandomOre(ref location, ref randomGen, 4, tile);
+							continue;
+						}
+					}
+					//calculate ore spawn
+					else if (Game1.player.hasSkullKey)
+					{
+						if (randomGen.NextDouble() < modConfig.oreChance)
+						{
+							amount--;
+							addRandomOre(ref location, ref randomGen, 4, tile);
+							continue;
+						}
+					}
+					else
+					{
+						//check mine level
+						if (Game1.player.deepestMineLevel > 80) //gold level
+						{
+							if (randomGen.NextDouble() < modConfig.oreChance)
+							{
+								amount--;
+								addRandomOre(ref location, ref randomGen, 3, tile);
+								continue;
+							}
+						}
+						else if (Game1.player.deepestMineLevel > 40) //iron level
+						{
+							if (randomGen.NextDouble() < modConfig.oreChance)
+							{
+								amount--;
+								addRandomOre(ref location, ref randomGen, 2, tile);
+								continue;
+							}
+						}
+						else
+						{
+							if (randomGen.NextDouble() < modConfig.oreChance)
+							{
+								amount--;
+								addRandomOre(ref location, ref randomGen, 1, tile);
+								continue;
+							}
+						}
+					}
+
+					//if ore doesnt spawn then calculate gem spawn
+					//1% to spawn gem
+					if (randomGen.NextDouble() < modConfig.gemChance)
+					{
+						if (!modConfig.OreUseMineLevel)
+						{
+							if (randomGen.Next(0, 100) < 10)
+							{
+								amount--;
+								location.setObject(tile, createOre("mysticStone", tile));
+								continue;
+							}
+						}
+						else if (Game1.player.hasSkullKey)
+							if (randomGen.Next(0, 100) < 10)
+							{
+								amount--;
+								location.setObject(tile, createOre("mysticStone", tile));
+								continue;
+							}
+							else if (randomGen.Next(0, 500) < 1)
+							{
+								amount--;
+								location.setObject(tile, createOre("mysticStone", tile));
+								continue;
+							}
+
+						switch (randomGen.Next(0, 100) % 8)
+						{
+							case 0: location.setObject(tile, createOre("gemStone", tile)); amount--; break;
+							case 1: location.setObject(tile, createOre("diamond", tile)); amount--; break;
+							case 2: location.setObject(tile, createOre("ruby", tile)); amount--; break;
+							case 3: location.setObject(tile, createOre("jade", tile)); amount--; break;
+							case 4: location.setObject(tile, createOre("amethyst", tile)); amount--; break;
+							case 5: location.setObject(tile, createOre("topaz", tile)); amount--; break;
+							case 6: location.setObject(tile, createOre("emerald", tile)); amount--; break;
+							case 7: location.setObject(tile, createOre("aquamarine", tile)); amount--; break;
+							default: break;
+						}
+						continue;
+					}
+				}
+			}
+
+		}
 		static void ClearResourceClump(Netcode.NetCollection<ResourceClump> input, Vector2 RCLocation)
 		{
 			for (int i = 0; i < input.Count; i++)
@@ -291,6 +423,17 @@ namespace Fox536.ResourceGen
 			}
 		}
 		static void addRandomOre(ref Farm input, ref Random randomGen, int highestOreLevel, Vector2 tileLocation)
+		{
+			switch (randomGen.Next(0, 100) % highestOreLevel)
+			{
+				case 0: input.setObject(tileLocation, createOre("copperStone", tileLocation)); break;
+				case 1: input.setObject(tileLocation, createOre("ironStone", tileLocation)); break;
+				case 2: input.setObject(tileLocation, createOre("goldStone", tileLocation)); break;
+				case 3: input.setObject(tileLocation, createOre("iridiumStone", tileLocation)); break;
+				default: break;
+			}
+		}
+		static void addRandomOre(ref GameLocation input, ref Random randomGen, int highestOreLevel, Vector2 tileLocation)
 		{
 			switch (randomGen.Next(0, 100) % highestOreLevel)
 			{

@@ -11,6 +11,16 @@ namespace Fox536.ResourceGen
 		public List<Vector2[]> MineLocations { get; set; } = new List<Vector2[]>() {
 			new Vector2[] {new Vector2( 0, 0), new Vector2( 0, 0) },
 		};
+
+		public bool doSpawnOre2 { get; set; } = false;
+		public List<MineArea> MineLocations2 { get; set; } = new List<MineArea> {
+			new MineArea("Farm", new List<Rectangle> {
+				new Rectangle(1, 2, 3, 4),
+				new Rectangle(4, 1, 3, 1),
+			}),
+		};
+		public bool UseMineOreLimit { get; set; } = false;
+		public int MinOreLimit { get; set; } = 10;
 		private List<Vector2> mineArea = null;
 		public List<Vector2> GetMineArea()
 		{
@@ -91,4 +101,65 @@ namespace Fox536.ResourceGen
 		}
 	}
 
+	public class MineArea
+	{
+		public string		LocationName	{ get; set; }
+		public List<Rectangle> Area { get; set; } = new List<Rectangle> {
+			new Rectangle(1, 2, 4, 5)
+		};
+
+		public MineArea(string name, List<Rectangle> area)
+		{
+			LocationName = name;
+			Area = area;
+		}
+
+		public static List<MineArea> CombineAllDuplicates(List<MineArea> list)
+		{
+			List<MineArea> newArea = new List<MineArea>();
+			
+			// Get All affected Maps
+			List<string> locations = new List<string>();
+			foreach (var item in list) {
+				if (!locations.Contains(item.LocationName))
+					locations.Add(item.LocationName);
+			}
+			foreach (var location in locations)
+			{
+				foreach (var item in list.FindAll(n => n.LocationName == location))
+				{
+					MineArea first = newArea.Find(n => n.LocationName == location);
+					if (first != null)
+					{
+						first.Area.AddRange(item.Area);
+						first.Area.Sort();
+					}
+					else
+					{
+						newArea.Add(item);
+					}
+				}
+			}
+
+			return newArea;
+		}
+
+		public static List<Vector2> GetArea(MineArea area)
+		{
+			List<Vector2> newArea = new List<Vector2>();
+
+			foreach (var rect in area.Area)
+			{
+				for (int x = 0; x < rect.Width; x++)
+				{
+					for (int y = 0; y < rect.Height; y++)
+					{
+						newArea.Add(new Vector2(rect.X + x, rect.Y + y));
+					}
+				}
+			}
+
+			return newArea;
+		}
+	}
 }

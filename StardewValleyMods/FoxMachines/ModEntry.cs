@@ -427,7 +427,7 @@ namespace Fox536.Machines
 		// For Mystic Collector
 		private void MysticCollectorUpdate(GameLocation location, StardewValley.Object machine)
 		{
-			print("found collector in: " + location.name);
+			//print("found collector in: " + location.name);
 
 			List<StardewValley.Object> connectedMachines = null;
 
@@ -446,7 +446,7 @@ namespace Fox536.Machines
 				{
 					// do a new search
 					connectedMachines = GetConnectedMachinesGroup(location, machine);
-					print("New Search found " + connectedMachines.Count + " machines connected");
+					//print("New Search found " + connectedMachines.Count + " machines connected");
 				}
 				else if (MachineGroups.ContainsKey(location)) // otherwise
 				{
@@ -455,7 +455,7 @@ namespace Fox536.Machines
 					if (groups.ContainsKey(machine))
 					{
 						connectedMachines = groups[machine];
-						print("Already found " + connectedMachines.Count + " machines connected");
+						//print("Already found " + connectedMachines.Count + " machines connected");
 					}
 				}
 
@@ -463,7 +463,7 @@ namespace Fox536.Machines
 				if (connectedMachines == null)
 				{
 					connectedMachines = GetConnectedMachinesGroup(location, machine);
-					print("New Search found " + connectedMachines.Count + " machines connected");
+					//print("New Search found " + connectedMachines.Count + " machines connected");
 				}
 
 				// Add location and group to the cache
